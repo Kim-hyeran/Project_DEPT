@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "BinggraeTaom";
+  src: url("font/BinggraeTaom.otf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: BinggraeTaom;
+  /* font-size: 25px; */
+  display: flex;
+}
+
+.box {
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border: 2px solid #4a148c;
+  box-shadow: 0 6px 10px rgba(50, 50, 93, 0.11), 0 5px 10px rgba(0, 0, 0, 0.08);
+}
+
+img {
+  width: 150px;
+}
+
+.box h3 {
+  color: #4a148c;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #4a148c;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: #232653;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 15px;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  width: 250px;
+  border-color: #232653;
+}
+
+.box input[type="button"] {
+  border: 0;
+  background: #4a148c;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #4a148c;
+  padding: 10px 0;
+  outline: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  font-size: 15px;
+  width: 180px;
+}
+
+.box input[type="button"]:hover {
+  background: none;
+  color: #4a148c;
+}
+
+#login {
+  margin-top: 80px;
+}
