@@ -1,0 +1,153 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.9rem;
+  }
+  
+  div.list_area {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    width: 50%;
+    height: auto;
+  }
+  
+  body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
+  table {
+    border-collapse: collapse;
+    justify-content: center;
+  }
+  
+  h2#board_title {
+    font-size: 1.3rem;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .board_list_wrap {
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+  }
+  
+  .board_list {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .board_list th,
+  .board_list td {
+    padding: 5px;
+  }
+  
+  .board_list td {
+    text-align: center;
+  }
+  
+  .board_list .board_title:nth-child(2) {
+    text-align: left;
+  }
+  
+  .board_list .board_title:hover {
+    color: #888;
+    text-decoration: underline;
+  }
+  
+  div.search_box, div.write_btn {
+    display: inline-block;
+  }
+  
+  div.footer_contents {
+    display: flex;
+  }
+  
+  div.search_box {
+    width: fit-content;
+    padding: 5px;
+  }
+  
+  div.search_box input {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #888;
+  }
+  
+  a.search_btn {
+    color: #4a148c;
+  }
+  
+  div.write_btn {
+    margin-left: auto;
+  }
+  
+  button {
+    width: 55px;
+    height: 30px;
+    background-color: #4a148c;
+    color: white;
+    border: 1px solid #4a148c;
+    border-radius: 24px;
+    outline: none;
+    transition: 0.5s ease;
+  }
+  
+  button:hover {
+    background-color: white;
+    border: 1px solid #4a148c;
+    color: #4a148c;
+  }
+  
+  .board_list_wrap .paging {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .board_list_wrap .paging a {
+    display: inline-block;
+    padding: 5px 10px;
+  }
+  
+  .board_list_wrap .paging i {
+    color: #888;
+  }
+  
+  @media (max-width: 980px) {
+    .board_list_wrap,
+    h2#main_title {
+      width: 90%;
+    }
+  }
+  
+  /*
+   반응형 레이아웃 설정 알아보기
+   */
+  
+  @media (max-width: 750px) {
+    .board_list_wrap {
+      width: 90%;
+    }
+  
+    table.board_list thead tr th:nth-child(4),
+    table.board_list tbody tr td:nth-child(4),
+    table.board_list thead tr th:nth-child(5),
+    table.board_list tbody tr td:nth-child(5) {
+      display: none;
+    }
+  }
