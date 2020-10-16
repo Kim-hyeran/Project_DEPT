@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "BinggraeTaom";
+  src: url("font/BinggraeTaom.otf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: BinggraeTaom;
+}
+
+.box {
+  width: 750px;
+  height: 600px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #4a148c;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+img {
+  width: 180px;
+}
+
+.box h3 {
+  color: #4a148c;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.box label {
+  display: inline-block;
+  width: 150px;
+  text-align: left;
+  margin: 4px;
+  color: #4a148c;
+  font-weight: bold;
+}
+
+#input_box {
+  margin: 35px auto;
+}
+
+div#msg_username {
+  display: none;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+  background: none;
+  display: inline-block;
+  margin: 10px auto;
+  text-align: center;
+  border: 2px solid #4a148c;
+  padding: 14px 10px;
+  width: 300px;
+  outline: none;
+  color: #232653;
+  border-radius: 24px;
+  transition: 0.25s;
+  font-size: 15px;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  width: 350px;
+  border-color: #4a148c;
+}
+
+button#create_account {
+  border: 0;
+  background: #4a148c;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #4a148c;
+  padding: 10px 0;
+  outline: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  font-size: 15px;
+  width: 350px;
+  margin-top: 30px;
+}
+
+button#create_account:hover {
+  background: none;
+  color: #4a148c;
+}
+
+#dept_input {
+  width: 230px;
+}
+
+#dept_search {
+  background: #4a148c;
+  border-radius: 24px;
+  border: 2px solid #4a148c;
+  color: #fff;
+  margin-left: 8px;
+  padding: 10px 15px;
+  font-weight: bold;
+}
+
+#dept_search:hover {
+  background: none;
+  color: #4a148c;
+}

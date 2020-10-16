@@ -1,0 +1,197 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "JSDongkang-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/JSDongkang-RegularA1.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "JSDongkang-Regular";
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 80%;
+  height: 100%;
+  margin: 0 auto;
+}
+body {
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+}
+header {
+  color: #4a148c;
+  padding: 2rem;
+}
+
+nav ul li a {
+  /* a tag를 가장 안쪽에 배치할 때는
+      display를 inline-block으로 설정해 주어야
+      부모box와 어울리는 모양이 된다.
+    */
+  display: inline-block;
+  text-decoration: none;
+  padding: 11px 16px;
+  color: inherit;
+}
+
+section#main_content {
+  flex: 100%;
+  margin: 0 auto;
+  width: 100%;
+  height: 70%;
+  overflow: auto;
+
+  display: flex;
+  flex-flow: column;
+}
+#main_content section {
+  margin: 10px 3px;
+  /* text-align: center; */
+}
+
+#main_content section:nth-child(1) {
+  flex: 1;
+  display: flex;
+  padding: 10px;
+  border: 2px solid #4a148c;
+  border-radius: 24px;
+}
+
+#top_content_left {
+  flex: 1;
+  text-align: center;
+}
+
+#top_content_left img {
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#top_content_right {
+  flex: 3;
+  text-align: center;
+}
+
+#top_content_right table {
+  width: 60%;
+  height: 60%;
+  margin: 20px auto;
+}
+
+#top_content_right table th {
+  color: #4a148c;
+  text-align: left;
+}
+
+#top_content_right table td {
+  border: 1px solid #ddd;
+  border-radius: 24px;
+}
+
+#btn_modify {
+  width: 60%;
+  min-width: 20%;
+  height: 2.5rem;
+  border: 0;
+  background: #4a148c;
+  border: 2px solid #4a148c;
+  padding: 10px 0;
+  outline: none;
+  color: #fff;
+  border-radius: 24px;
+  font-size: 15px;
+}
+
+#btn_modify:hover {
+  background: #fff;
+  color: #4a148c;
+}
+
+#main_content section:nth-child(2) {
+  flex: 2;
+  border: 2px solid #4a148c;
+  border-radius: 24px;
+}
+
+nav#menu {
+  height: 2.5rem;
+}
+
+#bottom_content_in {
+  margin: 5px;
+}
+
+#menu {
+  height: 30px;
+  border: 2px solid #4a148c;
+  border-radius: 18px 18px 0 0;
+  background: #4a148c;
+  text-align: center;
+}
+
+.btn_menu {
+  outline: none;
+  border: none;
+  background: none;
+  color: white;
+
+  line-height: 2.5rem;
+  margin: 0 15px;
+  font-size: 15px;
+}
+
+.btn_menu:hover {
+  color: black;
+}
+
+#top_content_right td {
+  border: 1px solid;
+}
+
+#bottom_content_in {
+  margin: 0 auto;
+}
+
+#write_table {
+  width: 70%;
+  padding: 3px;
+
+  justify-content: center;
+  text-align: center;
+  margin: 15px auto;
+
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+#write_table th,
+#write_table td {
+  text-align: left;
+  padding: 5px;
+}
+
+#write_table th {
+  border-bottom: 1px solid #ddd;
+}
+
+.paging {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.paging a {
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+.paging i {
+  color: #888;
+}
