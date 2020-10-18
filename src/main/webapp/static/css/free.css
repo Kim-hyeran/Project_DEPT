@@ -1,9 +1,6 @@
 @charset "UTF-8";
 * {
-    margin: 0;
-    padding: 0;
     font-family: "Roboto", sans-serif;
-    font-size: 0.9rem;
   }
   
   div.list_area {
@@ -45,6 +42,7 @@
     justify-content: center;
     margin: auto;
     width: 50%;
+   	font-size: 0.9rem;
   }
   
   .board_list {
@@ -134,10 +132,6 @@
       width: 90%;
     }
   }
-  
-  /*
-   반응형 레이아웃 설정 알아보기
-   */
   
   @media (max-width: 750px) {
     .board_list_wrap {

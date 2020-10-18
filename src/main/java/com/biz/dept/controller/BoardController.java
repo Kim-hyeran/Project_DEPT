@@ -9,6 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value="/comsc")
 public class BoardController {
 	
+	@RequestMapping(value={"/", ""}, method=RequestMethod.GET)
+	public String main() {
+		
+		return "home";
+	}
+	
 	@RequestMapping(value="/free", method=RequestMethod.GET)
 	public String free(Model model) {
 		model.addAttribute("BODY", "FREE_BOARD");
