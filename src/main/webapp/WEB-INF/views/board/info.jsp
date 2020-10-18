@@ -18,7 +18,7 @@
      <tbody>
        <tr>
          <td>3</td>
-         <td class="board_title" >KBS 한국어 능력 시험 일정입니다
+         <td class="board_title">KBS 한국어 능력 시험 일정입니다
          </td>
          <td>알림봇</td>
          <td>20-10-01</td>

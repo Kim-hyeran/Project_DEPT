@@ -18,7 +18,7 @@
         <tbody>
             <tr>
                 <td>2</td>
-                <td class="board_title"><a href="#">검색 기능을 보완하였습니다.</a></td>
+                <td class="board_title">검색 기능을 보완하였습니다.</a></td>
                 <td>관리자</td>
                 <td>20-10-05</td>
                 <td>0</td>

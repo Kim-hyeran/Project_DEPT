@@ -18,7 +18,7 @@
     <tbody>
       <tr>
         <td>9</td>
-        <td class="board_title" onClick="location.href='boardcontents_page.html'">명왕성에서 온 이메일</td>
+        <td class="board_title">명왕성에서 온 이메일</td>
         <td>장이지</td>
         <td>20-10-06</td>
         <td>83</td>
