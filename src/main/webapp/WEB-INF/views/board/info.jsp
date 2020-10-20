@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/free.css?ver=2020-10-15-001" />
+<script src="${rootPath}/static/javascript/write.js?ver=2020-10-20-001"></script>
  <div class="board_list_wrap">
    <h2 id="board_title">정보게시판</h2>
    <table class="board_list">

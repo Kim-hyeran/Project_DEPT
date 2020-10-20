@@ -20,9 +20,10 @@
 	  font-size: 2rem;
 	  margin: 10px 0;
 	  padding-top: 30px;
+	  cursor: pointer;
 	}
 	
-	.fa-pen-nib {
+	.fa-power-off {
 	  font-size: 1.8rem;
 	  margin-right: 10px;
 	  color: #4a148c;
@@ -51,9 +52,15 @@
 	  border: 1px solid #4a148c;
 	  color: #4a148c;
 	}
+	
+	@media (max-width: 980px) {
+	    header {
+	      width: 90%;
+	    }
+  	}
 </style>
 <div id="header">
-	<h2 id="main_title"><i class="fas fa-pen-nib"></i>언어·문학</h2>
+	<h2 id="main_title"><i class="fas fa-power-off"></i>컴퓨터·통신</h2>
 	<div id="login-out">
 		<button id="login">로그인</button>
 	    <button id="logout">로그아웃</button>
