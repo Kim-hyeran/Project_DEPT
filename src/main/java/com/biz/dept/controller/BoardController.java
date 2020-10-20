@@ -22,6 +22,13 @@ public class BoardController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/write", method=RequestMethod.GET)
+	public String write(Model model) {
+		model.addAttribute("BODY", "FREE_WRITE");
+		
+		return "home";
+	}
+	
 	@RequestMapping(value="/info", method=RequestMethod.GET)
 	public String info(Model model) {
 		model.addAttribute("BODY", "INFO_BOARD");

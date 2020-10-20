@@ -6,18 +6,18 @@
 <html>
 
 <head>
-  <meta charset="utf-8" />
-  <title>DEPT</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/home.css?ver=2020-10-15-001" />
-  <script src="https://kit.fontawesome.com/c2f525edad.js" crossorigin="anonymous"></script>
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script>
+<meta charset="utf-8" />
+<title>DEPT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/home.css?ver=2020-10-15-001" />
+<script src="https://kit.fontawesome.com/c2f525edad.js" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="${rootPath}/static/javascript/sidebar.js?ver=2020-10-18-002"></script>
+<script>
 	var rootPath = "${rootPath}"
 	var csrf_header = "${_csrf.headerName}"
 	var csrf_token = "${_csrf.token}"
-  </script>
-  <script src="${rootPath}/static/javascript/sidebar.js?ver=2020-10-18-002"></script>
+</script>
 </head>
 
 <input type="checkbox" id="check" />
@@ -45,6 +45,9 @@
 			<c:choose>
 				<c:when test="${BODY == 'FREE_BOARD'}">
 					<%@ include file="/WEB-INF/views/board/free.jsp"%>
+				</c:when>
+				<c:when test="${BODY == 'FREE_WRITE'}">
+					<%@ include file="/WEB-INF/views/board/write.jsp"%>
 				</c:when>
 				<c:when test="${BODY == 'INFO_BOARD'}">
 					<%@ include file="/WEB-INF/views/board/info.jsp"%>
