@@ -30,6 +30,6 @@
 	</bean>
 
 	<!-- mybatis-scan -->
-	<mybatis-spring:scan base-package="com.biz.iolist.mapper" />
+	<mybatis-spring:scan base-package="com.biz.dept.persistence" />
 
 </beans>

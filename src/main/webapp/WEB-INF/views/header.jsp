@@ -29,13 +29,13 @@
 	  color: #4a148c;
 	}
 	
-	div#login-out {
+	div#logout {
 	  width: fit-content;
 	  margin-left: auto;
 	  font-size: 0.9rem;
 	}
 	
-	div#login-out button {
+	div#logout button {
 	  width: 65px;
 	  height: 30px;
 	  margin-top: 10px;
@@ -47,7 +47,7 @@
 	  transition: 0.5s ease;
 	}
 	
-	div#login-out button:hover {
+	div#logout button:hover {
 	  background-color: white;
 	  border: 1px solid #4a148c;
 	  color: #4a148c;
@@ -61,8 +61,7 @@
 </style>
 <div id="header">
 	<h2 id="main_title"><i class="fas fa-power-off"></i>컴퓨터·통신</h2>
-	<div id="login-out">
-		<button id="login">로그인</button>
-	    <button id="logout">로그아웃</button>
+	<div id="logout">
+	    <button id="btn_logout">로그아웃</button>
 	</div>
 </div>

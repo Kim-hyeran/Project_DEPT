@@ -36,4 +36,11 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/notice", method=RequestMethod.GET)
+	public String notice(Model model) {
+		model.addAttribute("BODY", "NOTI_BOARD");
+		
+		return "home";
+	}
+	
 }
