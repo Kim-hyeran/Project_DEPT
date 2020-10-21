@@ -13,7 +13,7 @@ $(function () {
         } else if (menu_id === "book_board") {
             document.location.href = `${rootPath}/`;
         } else if (menu_id === "notice") {
-            document.location.href = `${rootPath}/comsc/notice`;
+            document.location.href = `${rootPath}/notice`;
         } else if (menu_id === "menu-mypage") {
             document.location.href = `${rootPath}/`;
         }
