@@ -15,6 +15,12 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/write.css?ver=2020-10-20-002" />
 
 <script>
+	$(function () {
+		$("button#back_to_list").click(function () {
+			document.location.href = "${rootPath}/comsc/info"
+		})
+	})
+	
 	$(function() {
 		var toolbar = [
 			['style',['bold','italic','underline'] ],
@@ -29,11 +35,6 @@
 			
 		]
 		$("#summer_note").summernote({lang:"ko-KR", width:"100%", height:"300px", toolbar:toolbar})
-	})
-	$(function () {
-		$("button#back_to_list").click(function () {
-			document.location.href = "${rootPath}/comsc/info"
-		})
 	})
 </script>
 <form method="POST">

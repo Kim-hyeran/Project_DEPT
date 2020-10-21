@@ -63,7 +63,7 @@ ul i {
 }
 
 label #btn, label #cancel {
-    position: absolute;
+    position: fixed;
     cursor: pointer;
     background-color: #4a148c;
     border-radius: 24px;
