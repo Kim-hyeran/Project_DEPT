@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/free.css?ver=2020-10-15-001" />
+<script src="${rootPath}/static/javascript/write.js?ver=2020-10-20-001"></script>
 <div class="board_list_wrap">
     <h2 id="board_title">공지사항</h2>
     <table class="board_list">
@@ -18,7 +19,7 @@
         <tbody>
             <tr>
                 <td>2</td>
-                <td class="board_title"><a href="#">검색 기능을 보완하였습니다.</a></td>
+                <td class="board_title">검색 기능을 보완하였습니다.</a></td>
                 <td>관리자</td>
                 <td>20-10-05</td>
                 <td>0</td>

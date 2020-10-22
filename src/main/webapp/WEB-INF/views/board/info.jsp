@@ -3,6 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/free.css?ver=2020-10-15-001" />
+<script>
+	$(function () {
+	    $("div.write_btn").click(function () {
+	        document.location.href = "${rootPath}/comsc/info/write"
+	    })
+	})
+</script>
  <div class="board_list_wrap">
    <h2 id="board_title">정보게시판</h2>
    <table class="board_list">
@@ -18,7 +25,7 @@
      <tbody>
        <tr>
          <td>3</td>
-         <td class="board_title" >KBS 한국어 능력 시험 일정입니다
+         <td class="board_title">KBS 한국어 능력 시험 일정입니다
          </td>
          <td>알림봇</td>
          <td>20-10-01</td>

@@ -2,8 +2,6 @@
 * {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
   
   #container {
@@ -11,7 +9,7 @@
     height: 100%;
     display: flex;
     margin: auto;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
   
   h4 {
@@ -20,7 +18,7 @@
     padding: 3px;
   }
   
-  #free_board {
+  #free_board_m {
     width: 55%;
     height: auto;
     justify-content: left;

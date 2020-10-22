@@ -3,6 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/free.css?ver=2020-10-15-001" />
+<script>
+	$(function () {
+	    $("div.write_btn").click(function () {
+	        document.location.href = "${rootPath}/comsc/free/write"
+	    })
+	})
+</script>
 <div class="board_list_wrap">
   <h2 id="board_title">자유게시판</h2>
   <table class="board_list">
@@ -18,7 +25,7 @@
     <tbody>
       <tr>
         <td>9</td>
-        <td class="board_title" onClick="location.href='boardcontents_page.html'">명왕성에서 온 이메일</td>
+        <td class="board_title">명왕성에서 온 이메일</td>
         <td>장이지</td>
         <td>20-10-06</td>
         <td>83</td>
