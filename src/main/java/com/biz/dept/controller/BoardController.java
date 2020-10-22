@@ -1,9 +1,16 @@
 package com.biz.dept.controller;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.biz.dept.model.BoardVO;
 
 @Controller
 @RequestMapping(value="/comsc")
@@ -37,8 +44,25 @@ public class BoardController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/write", method=RequestMethod.GET)
+	public String write(@ModelAttribute("BBSVO") BoardVO bbsVO, Model model) {
+		LocalDate localDate=LocalDate.now();
+		LocalTime localTime=LocalTime.now();
+		
+		DateTimeFormatter date=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		DateTimeFormatter time=DateTimeFormatter.ofPattern("hh:mm:ss");
+		
+		bbsVO.setCs_date(date.format(localDate).toString());
+		bbsVO.setCs_time(time.format(localTime).toString());
+		
+		model.addAttribute("BBSVO", bbsVO);
+		model.addAttribute("BODY", "NOTI_WRITE");
+		
+		return "home";
+	}
+	
 	@RequestMapping(value="/free/write", method=RequestMethod.GET)
-	public String freeWrite(Model model) {
+	public String freeWrite(@ModelAttribute("BBSVO") BoardVO bbsVO, Model model) {
 		model.addAttribute("BODY", "FREE_WRITE");
 		
 		return "home";

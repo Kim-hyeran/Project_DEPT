@@ -18,12 +18,11 @@
 	
 	h2#main_title {
 	  font-size: 2rem;
-	  margin: 10px 0;
-	  padding-top: 30px;
+	  margin: 50px 0 20px 0;
 	  cursor: pointer;
 	}
 	
-	.fa-power-off {
+	i#dept_icon {
 	  font-size: 1.8rem;
 	  margin-right: 10px;
 	  color: #4a148c;
@@ -60,7 +59,7 @@
   	}
 </style>
 <div id="header">
-	<h2 id="main_title"><i class="fas fa-power-off"></i>컴퓨터·통신</h2>
+	<h2 id="main_title"><i id="dept_icon" class="fas fa-power-off"></i>컴퓨터·통신</h2>
 	<div id="logout">
 	    <button id="btn_logout">로그아웃</button>
 	</div>

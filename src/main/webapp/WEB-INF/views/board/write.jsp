@@ -11,7 +11,7 @@
 <script src="${rootPath}/static/summernote/summernote-lite.min.js"></script>
 <script src="${rootPath}/static/summernote/lang/summernote-ko-KR.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/write.css?ver=2020-10-20-002" />
+<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/write.css?ver=2020-10-20-001" />
 <script>
 	$(function() {
 		var toolbar = [
@@ -29,9 +29,9 @@
 		$("#b_content").summernote({lang:"ko-KR", width:"100%", height:"300px", toolbar:toolbar})
 	})
 </script>
-<form>
+<form method="POST" action="${rootPath}/${ACTION}">
   <div class="write_title">
-    <label class="title_label">제목</label><input class="title_input" placeholder="제목을 입력하세요" />
+    <input class="title_input" placeholder="제목을 입력하세요" />
   </div>
   <div class="write_body">
     <textarea id="b_content" placeholder="내용을 입력하세요"></textarea>

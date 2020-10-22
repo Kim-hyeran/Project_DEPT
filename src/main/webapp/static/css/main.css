@@ -29,7 +29,11 @@
     width: 45%;
     height: auto;
     justify-content: right;
-    padding-bottom: 10px;
+  }
+
+  #hot_board_m,
+  #info_board_m {
+    margin-bottom: 10px;
   }
   
   p {
