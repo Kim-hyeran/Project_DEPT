@@ -33,7 +33,7 @@
 				<c:forEach items="${FREE_LIST}" var="FREE_VO" varStatus="i">
 			        <tr id="tr_body">
 			            <td>${i.count}</td>
-			            <td class="board_title" data-seq="${FREE_VO.io_seq}">${FREE_VO.cs_title}</td>
+			            <td class="board_title" data-seq="${FREE_VO.cs_seq}">${FREE_VO.cs_title}</td>
 			            <td>${FREE_VO.cs_writer}</td>
 			            <td>${FREE_VO.cs_date}</td>
 			            <td></td>

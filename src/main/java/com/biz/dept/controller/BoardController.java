@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.biz.dept.model.BoardVO;
+import com.biz.dept.service.BoardService;
 
 @Controller
 @RequestMapping(value="/comsc")
 public class BoardController {
 	
 	@Autowired
-	@Qualifier("bbsServiceV1")
-	private BoardService bbsService;
+	private BoardService freeService;
 	
 	@RequestMapping(value={"/", ""}, method=RequestMethod.GET)
 	public String main() {
@@ -31,7 +30,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/free", method=RequestMethod.GET)
 	public String free(Model model) {
-		List<BoardVO> freeList=bbsService.selectAll();
+		List<BoardVO> freeList=freeService.selectAll();
 		
 		model.addAttribute("FREE_LIST", freeList);
 		model.addAttribute("BODY", "FREE_BOARD");

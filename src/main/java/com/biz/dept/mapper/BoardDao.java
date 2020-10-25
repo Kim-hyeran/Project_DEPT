@@ -32,40 +32,40 @@ public interface BoardDao {
 	
 	
 	
-	// 정보게시판 SQL
-	@Select("SELECT * FROM tbl_cs_info ORDER BY cs_info_seq DESC")
-	public List<BoardVO> infoAll();
-	
-	@Select("SELECT * FROM tbl_cs_info WHERE cs_info_seq = #{seq} ")
-	public BoardVO info_seq(long seq);
-	
-	@InsertProvider(type=BoardSQL.class, method="info_insert")
-	@SelectKey(keyProperty = "cs_info_seq", statement = "SELECT cs_info_seq.NEXTVAL FROM DUAL", resultType = Long.class, before=true)
-	public int info_insert(BoardVO boardVO);
-	
-	@UpdateProvider(type=BoardSQL.class,method="info_update")
-	public int info_update(BoardVO boardVO);
-	
-	@Delete("DELETE FROM tbl_cs_info WHERE cs_info_seq = #{seq}")
-	public int info_delete(long seq);
-	
-	
-	
-	// 공지사항 SQL
-	@Select("SELECT * FROM tbl_cs_noti ORDER BY cs_noti_seq DESC")
-	public List<BoardVO> notiAll();
-	
-	@Select("SELECT * FROM tbl_cs_noti WHERE cs_noti_seq = #{seq} ")
-	public BoardVO noti_noti(long seq);
-	
-	@InsertProvider(type=BoardSQL.class, method="noti_insert")
-	@SelectKey(keyProperty = "cs_noti_seq", statement = "SELECT cs_noti_seq.NEXTVAL FROM DUAL", resultType = Long.class, before=true)
-	public int noti_insert(BoardVO boardVO);
-	
-	@UpdateProvider(type=BoardSQL.class,method="noti_update")
-	public int noti_update(BoardVO boardVO);
-	
-	@Delete("DELETE FROM tbl_cs_noti WHERE cs_noti_seq = #{seq}")
-	public int noti_delete(long seq);
+//	// 정보게시판 SQL
+//	@Select("SELECT * FROM tbl_cs_info ORDER BY cs_info_seq DESC")
+//	public List<BoardVO> infoAll();
+//	
+//	@Select("SELECT * FROM tbl_cs_info WHERE cs_info_seq = #{seq} ")
+//	public BoardVO info_seq(long seq);
+//	
+//	@InsertProvider(type=BoardSQL.class, method="info_insert")
+//	@SelectKey(keyProperty = "cs_info_seq", statement = "SELECT cs_info_seq.NEXTVAL FROM DUAL", resultType = Long.class, before=true)
+//	public int info_insert(BoardVO boardVO);
+//	
+//	@UpdateProvider(type=BoardSQL.class,method="info_update")
+//	public int info_update(BoardVO boardVO);
+//	
+//	@Delete("DELETE FROM tbl_cs_info WHERE cs_info_seq = #{seq}")
+//	public int info_delete(long seq);
+//	
+//	
+//	
+//	// 공지사항 SQL
+//	@Select("SELECT * FROM tbl_cs_noti ORDER BY cs_noti_seq DESC")
+//	public List<BoardVO> notiAll();
+//	
+//	@Select("SELECT * FROM tbl_cs_noti WHERE cs_noti_seq = #{seq} ")
+//	public BoardVO noti_noti(long seq);
+//	
+//	@InsertProvider(type=BoardSQL.class, method="noti_insert")
+//	@SelectKey(keyProperty = "cs_noti_seq", statement = "SELECT cs_noti_seq.NEXTVAL FROM DUAL", resultType = Long.class, before=true)
+//	public int noti_insert(BoardVO boardVO);
+//	
+//	@UpdateProvider(type=BoardSQL.class,method="noti_update")
+//	public int noti_update(BoardVO boardVO);
+//	
+//	@Delete("DELETE FROM tbl_cs_noti WHERE cs_noti_seq = #{seq}")
+//	public int noti_delete(long seq);
 
 }

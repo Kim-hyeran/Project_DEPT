@@ -2,14 +2,23 @@ package com.biz.dept.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.biz.dept.mapper.BoardDao;
 import com.biz.dept.model.BoardVO;
 
-public class BoardServiceImpl implements BoardService {
+@Service
+@Qualifier("freeService")
+public class FreeServiceImpl implements BoardService {
+	
+	@Autowired
+	private BoardDao bbsDao;
 
 	@Override
 	public List<BoardVO> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return bbsDao.freeAll();
 	}
 
 	@Override
