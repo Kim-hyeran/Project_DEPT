@@ -53,7 +53,7 @@
 	}
 	
 	@media (max-width: 980px) {
-	    header {
+	    div#header {
 	      width: 90%;
 	    }
   	}

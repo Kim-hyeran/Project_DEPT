@@ -15,10 +15,10 @@ public interface InfoDao {
 	@Select("SELECT * FROM tbl_cs_info WHERE cs_info_seq = #{seq} ")
 	public BoardVO findBySeq(long seq);
 	
-	//@InsertProvider(type=BbsSQL.class, method="bbs_insert")
+	//@InsertProvider(type=BbsSQL.class, method="info_insert")
 	public int insert(BoardVO bbsVO);
 	
-	//@UpdateProvider(type=BbsSQL.class,method="bbs_update")
+	//@UpdateProvider(type=BbsSQL.class, method="info_update")
 	public int update(BoardVO bbsVO);
 	
 	@Delete("DELETE FROM tbl_cs_info WHERE cs_info_seq = #{seq}")
