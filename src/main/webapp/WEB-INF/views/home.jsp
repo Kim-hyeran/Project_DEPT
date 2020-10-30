@@ -61,6 +61,9 @@
 				<c:when test="${BODY == 'NOTI_BOARD'}">
 					<%@ include file="/WEB-INF/views/board/notice.jsp"%>
 				</c:when>
+				<c:when test="${BODY == 'NOTI_WRITE'}">
+					<%@ include file="/WEB-INF/views/board/write.jsp"%>
+				</c:when>
 				<c:otherwise>
 					<%@ include file="/WEB-INF/views/board/main.jsp"%>
 				</c:otherwise>

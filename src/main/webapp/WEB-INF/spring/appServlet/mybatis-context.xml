@@ -14,19 +14,23 @@
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
 		<property name="username" value="dept" />
-		<property name="password" value="dept]" />
+		<property name="password" value="dept" />
 	</bean>
 
 	<!-- sqlSessionFactory -->
-	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="oracleDS" />
-		<property name="mapperLocations" value="/WEB-INF/spring/mybatis/mapper/*-mapper.xml" />
-		<property name="configLocation" value="/WEB-INF/spring/mybatis/mybatis-config.xml" />
+		<property name="typeAliasesPackage" value="com.biz.dept.model" />
+		<property name="configuration">
+			<bean class="org.apache.ibatis.session.Configuration">
+				<property name="jdbcTypeForNull" value="VARCHAR" />
+			</bean>
+		</property>
 	</bean>
 
-	<!-- sqlSessionTemplate -->
-	<bean class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory" index="0" />
+	<tx:annotation-driven />
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="oracleDS" />
 	</bean>
 
 	<!-- mybatis-scan -->

@@ -12,7 +12,7 @@
 <script src="${rootPath}/static/summernote/summernote-lite.min.js"></script>
 <script src="${rootPath}/static/summernote/lang/summernote-ko-KR.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/write.css?ver=2020-10-20-002" />
+<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/write.css?ver=2020-10-21-002" />
 
 <script>
 	$(function () {

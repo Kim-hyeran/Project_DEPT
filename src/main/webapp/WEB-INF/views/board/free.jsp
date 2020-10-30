@@ -23,71 +23,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>9</td>
-        <td class="board_title">명왕성에서 온 이메일</td>
-        <td>장이지</td>
-        <td>20-10-06</td>
-        <td>83</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td class="board_title"><a href="#">즐거운 편지</a></td>
-        <td>황동규</td>
-        <td>20-08-27</td>
-        <td>6</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td class="board_title">
-          <a href="#">The Cloths of Heaven</a>
-        </td>
-        <td>William Butler Yeats</td>
-        <td>20-08-03</td>
-        <td>10</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td class="board_title"><a href="#">꽃이 진다고 그대를 잊은 적 없다</a></td>
-        <td>정호승</td>
-        <td>20-07-30</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td class="board_title"><a href="#">나의 자랑 이랑</a></td>
-        <td>김승일</td>
-        <td>20-07-18</td>
-        <td>29</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td class="board_title"><a href="#">Bright Star</a></td>
-        <td>John Keats</td>
-        <td>20-06-23</td>
-        <td>23</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td class="board_title"><a href="#">눈사람 자살사건</a></td>
-        <td>최승호</td>
-        <td>20-06-07</td>
-        <td>11</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td class="board_title"><a href="#">다람다람 다람쥐</a></td>
-        <td>박목월</td>
-        <td>20-05-25</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td class="board_title"><a href="#">Morgens und abends zu lesen</a></td>
-        <td>Bertolt Brecht</td>
-        <td>20-04-08</td>
-        <td>66</td>
-      </tr>
+      <c:choose>
+			<c:when test="${empty FREE_LIST}">
+				<tr>
+					<td colspan="5">데이터가 존재하지 않습니다.</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<c:forEach items="${FREE_LIST}" var="FREE_VO" varStatus="i">
+			        <tr id="tr_body">
+			            <td>${i.count}</td>
+			            <td class="board_title" data-seq="${FREE_VO.cs_seq}">${FREE_VO.cs_title}</td>
+			            <td>${FREE_VO.cs_writer}</td>
+			            <td>${FREE_VO.cs_date}</td>
+			            <td></td>
+			        </tr>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
     </tbody>
   </table>
   <div class="footer_contents">
