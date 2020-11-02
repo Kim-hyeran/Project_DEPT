@@ -39,6 +39,8 @@
 </script>
 <form method="POST">
   <div class="write_title">
+	<input name="cs_date" value="${INFO_VO.cs_date}" type="hidden" />
+  	<input name="cs_time" value="${INFO_VO.cs_time}" type="hidden" />
   	<select name="category" id="category">
         <option value="license">자격증</option>
         <option value="contest">공모전</option>

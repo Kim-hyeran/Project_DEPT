@@ -1,7 +1,6 @@
 package com.biz.dept.controller;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -44,7 +44,11 @@ public class BoardController {
 	}
 
 	@RequestMapping(value="/free/{seq}", method=RequestMethod.GET)
-	public String freeDetail(Model model) {
+	public String freeDetail(@PathVariable String seq, Model model) {
+		long long_seq = Long.valueOf(seq);
+		BoardVO boardVO = freeService.findBySeq(long_seq);
+		
+		model.addAttribute("FREE_VO",boardVO);
 		model.addAttribute("BODY", "FREE_DETAIL");
 		
 		return "home";
@@ -52,17 +56,15 @@ public class BoardController {
 	
 	@RequestMapping(value="/free/write", method=RequestMethod.GET)
 	public String freeWrite(@ModelAttribute("FREE_VO") BoardVO boardVO, Model model) {
-		LocalDate localDate=LocalDate.now();
-		LocalTime localTime=LocalTime.now();
+		LocalDateTime ldt=LocalDateTime.now();
 		
-		DateTimeFormatter date=DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		DateTimeFormatter time=DateTimeFormatter.ofPattern("hh:mm:ss");
+		String date=DateTimeFormatter.ofPattern("yyyy-MM-dd").format(ldt);
+		String time=DateTimeFormatter.ofPattern("HH:mm:SS").format(ldt);
 		
-		boardVO.setCs_date(date.format(localDate).toString());
-		boardVO.setCs_time(time.format(localTime).toString());
+		boardVO=BoardVO.builder().cs_date(date).cs_time(time).build();
 		
-		model.addAttribute("FREE_VO", boardVO);
 		model.addAttribute("BODY", "FREE_WRITE");
+		model.addAttribute("FREE_VO", boardVO);
 		
 		return "home";
 	}
@@ -70,6 +72,7 @@ public class BoardController {
 	@RequestMapping(value="/free/write", method=RequestMethod.POST)
 	public String freeWrite(BoardVO boardVO) {
 		log.debug(boardVO.toString());
+		freeService.insert(boardVO);
 		
 		return "redirect:/comsc/free";
 	}
