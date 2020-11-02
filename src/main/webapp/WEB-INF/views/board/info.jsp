@@ -19,37 +19,34 @@
          <th>제목</th>
          <th>글쓴이</th>
          <th>작성일</th>
-         <th>추천</th>
+         <th>조회수</th>
        </tr>
      </thead>
      <tbody>
-       <tr>
-         <td>3</td>
-         <td class="board_title">KBS 한국어 능력 시험 일정입니다
-         </td>
-         <td>알림봇</td>
-         <td>20-10-01</td>
-         <td>56</td>
-       </tr>
-       <tr>
-         <td>2</td>
-         <td class="board_title"><a href="#">인문학시험을 아시나요?</a></td>
-         <td>모르는데요</td>
-         <td>20-09-12</td>
-         <td>5</td>
-       </tr>
-       <tr>
-         <td>1</td>
-         <td class="board_title"><a href="#">인터넷 강의 보다 저렴하게 이용하는 법</a></td>
-         <td>사기꾼</td>
-         <td>20-09-20</td>
-         <td>50</td>
-       </tr>
+       <c:choose>
+			<c:when test="${empty INFO_LIST}">
+				<tr>
+					<td colspan="5">데이터가 존재하지 않습니다.</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<c:forEach items="${INFO_LIST}" var="INFO_VO" varStatus="i">
+			        <tr id="tr_body">
+			            <td>${i.count}</td>
+			            <td class="board_title" data-seq="${INFO_VO.cs_seq}">${INFO_VO.cs_title}</td>
+			            <td>${INFO_VO.cs_writer}</td>
+			            <td>${INFO_VO.cs_date}</td>
+			            <td>${INFO_VO.cs_count}</td>
+			            <td></td>
+			        </tr>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
      </tbody>
    </table>
    <div class="footer_contents">
      <div class="search_box">
-       <input type="search_txt" placeholder="검색어를 입력하세요" />
+       <input class="search_txt" placeholder="검색어를 입력하세요" />
        <a class="search_btn"><i class="fas fa-search"></i></a>
      </div>
      <div class="write_btn">

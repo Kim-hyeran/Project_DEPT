@@ -19,24 +19,29 @@
                 <th>제목</th>
                 <th>글쓴이</th>
                 <th>작성일</th>
-                <th>추천</th>
+                <th>조회수</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>2</td>
-                <td class="board_title">검색 기능을 보완하였습니다.</td>
-                <td>관리자</td>
-                <td>20-10-05</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td class="board_title">DEPT 9월 개선 내용</td>
-                <td>관리자</td>
-                <td>20-09-30</td>
-                <td>0</td>
-            </tr>
+            <c:choose>
+			<c:when test="${empty NOTI_LIST}">
+				<tr>
+					<td colspan="5">데이터가 존재하지 않습니다.</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<c:forEach items="${NOTI_LIST}" var="NOTI_VO" varStatus="i">
+			        <tr id="tr_body">
+			            <td>${i.count}</td>
+			            <td class="board_title" data-seq="${NOTI_VO.cs_seq}">${NOTI_VO.cs_title}</td>
+			            <td>${NOTI_VO.cs_writer}</td>
+			            <td>${NOTI_VO.cs_date}</td>
+			            <td>${NOTI_VO.cs_count}</td>
+			            <td></td>
+			        </tr>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
         </tbody>
     </table>
     <div class="footer_contents">

@@ -13,7 +13,6 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
-		
 		return "home";
 	}
 
@@ -26,6 +25,19 @@ public class HomeController {
 	
 	@RequestMapping(value="/write", method=RequestMethod.GET)
 	public String notiWrite(Model model) {
+		model.addAttribute("BODY", "NOTI_WRITE");
+		
+		return "home";
+	}
+	
+	@RequestMapping(value="/write", method=RequestMethod.POST)
+	public String notiWrite() {
+		
+		return "home";
+	}
+	
+	@RequestMapping(value="/notice/{seq}", method=RequestMethod.GET)
+	public String notiDetail(Model model) {
 		model.addAttribute("BODY", "NOTI_WRITE");
 		
 		return "home";
