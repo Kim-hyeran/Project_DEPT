@@ -18,7 +18,9 @@ public class BoardVO {
 	private String cs_writer;
 	private String cs_date;
 	private String cs_time;
-	private String cs_contents;
+	private String cs_text;
 	private String cs_category;
+	private String cs_image;
+	private String cs_count;
 
 }

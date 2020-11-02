@@ -15,6 +15,12 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/write.css?ver=2020-10-20-002" />
 
 <script>
+	$(function () {
+		$("button#back_to_list").click(function () {
+			document.location.href = "${rootPath}/notice"
+		})
+	})
+	
 	$(function() {
 		var toolbar = [
 			['style',['bold','italic','underline'] ],
@@ -28,17 +34,17 @@
 			['view',['fullscreen','codeview']]
 			
 		]
-		$("#b_content").summernote({lang:"ko-KR", width:"100%", height:"300px", toolbar:toolbar})
+		$("#summer_note").summernote({lang:"ko-KR", width:"100%", height:"300px", toolbar:toolbar})
 	})
 </script>
-<form method="POST" action="${rootPath}/${ACTION}">
+<form method="POST">
   <div class="write_title">
-    <input class="title_input" placeholder="제목을 입력하세요" />
+    <input class="title_input" name="cs_title" value="${NOTI_VO.cs_title}" placeholder="제목을 입력하세요" />
   </div>
   <div class="write_body">
-    <textarea id="summer_note"></textarea>
+    <textarea id="summer_note" name="cs_text">${NOTI_VO.cs_text}</textarea>
   </div>
-  <div><label>파일 첨부</label><input type="file" id="write_file" accept="image/*" /></div>
+  <div><label></label></div>
   <div class="write_submit">
     <button id="back_to_list" type="button">취소</button>
     <button id="submit">등록</button>

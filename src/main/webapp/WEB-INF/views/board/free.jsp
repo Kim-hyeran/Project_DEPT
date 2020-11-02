@@ -19,7 +19,7 @@
         <th>제목</th>
         <th>글쓴이</th>
         <th>작성일</th>
-        <th>추천</th>
+        <th>조회수</th>
       </tr>
     </thead>
     <tbody>
@@ -36,6 +36,7 @@
 			            <td class="board_title" data-seq="${FREE_VO.cs_seq}">${FREE_VO.cs_title}</td>
 			            <td>${FREE_VO.cs_writer}</td>
 			            <td>${FREE_VO.cs_date}</td>
+			            <td>${FREE_VO.cs_count}</td>
 			            <td></td>
 			        </tr>
 				</c:forEach>
@@ -45,7 +46,7 @@
   </table>
   <div class="footer_contents">
     <div class="search_box">
-      <input type="search_txt" placeholder="검색어를 입력하세요" />
+      <input id="search_txt" placeholder="검색어를 입력하세요" />
       <a class="search_btn"><i class="fas fa-search"></i></a>
     </div>
     <div class="write_btn">

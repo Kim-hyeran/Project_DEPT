@@ -16,17 +16,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.biz.dept.model.BoardVO;
 import com.biz.dept.service.BoardService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 @RequestMapping(value="/comsc")
 public class BoardController {
 
-	/*
-	 * 1. db 연결하기 : 각 게시판 crud 구현
-	 * 2. 첨부파일 이미지 확장자로 제한
-	 * 3. 페이지네이션
-	 * 4. 조회수, 추천, 신고
-	 * 4. 댓글 기능
-	 */
 	@Autowired
 	@Qualifier("freeService")
 	private BoardService freeService;
@@ -47,48 +43,35 @@ public class BoardController {
 		return "home";
 	}
 
-	@RequestMapping(value="/detail", method=RequestMethod.GET)
-	public String detail(Model model) {
+	@RequestMapping(value="/free/{seq}", method=RequestMethod.GET)
+	public String freeDetail(Model model) {
 		model.addAttribute("BODY", "FREE_DETAIL");
 		
 		return "home";
 	}
 	
-	/*
-	 * 게시판 CRUD 구현 : 완벽한 테이블 명세 작성
-	 * 1. 작성일시를 글쓰기 완료 버튼을 클릭하는 시점으로 설정
-	 * 2. 첨부파일 가능 확장자를 이미지로 제한하여 코딩
-	 * 3. mapper.xml 대신 sql class 생성하기
-	 * 4. 게시판 목록 페이지네이션 구현
-	 * 5. 게시물 조회수, 추천, 신고 구현
-	 * 6. 검색 기능 구현
-	 * 
-	 * 의문점
-	 * 게시판마다 jsp와 controller method를 개별적으로 설정하는 방법만 존재하는가
-	 * 스크랩 기능 구현 방법?
-	 */
-	
 	@RequestMapping(value="/free/write", method=RequestMethod.GET)
-	public String freeWrite(@ModelAttribute("FREE_VO") BoardVO bbsVO,Model model) {
+	public String freeWrite(@ModelAttribute("FREE_VO") BoardVO boardVO, Model model) {
 		LocalDate localDate=LocalDate.now();
 		LocalTime localTime=LocalTime.now();
 		
 		DateTimeFormatter date=DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		DateTimeFormatter time=DateTimeFormatter.ofPattern("hh:mm:ss");
 		
-		bbsVO.setCs_date(date.format(localDate).toString());
-		bbsVO.setCs_time(time.format(localTime).toString());
+		boardVO.setCs_date(date.format(localDate).toString());
+		boardVO.setCs_time(time.format(localTime).toString());
 		
-		model.addAttribute("BBSVO", bbsVO);
-		model.addAttribute("BODY", "NOTI_WRITE");
+		model.addAttribute("FREE_VO", boardVO);
+		model.addAttribute("BODY", "FREE_WRITE");
 		
 		return "home";
 	}
 	
 	@RequestMapping(value="/free/write", method=RequestMethod.POST)
-	public String freeWrite(@ModelAttribute("BBSVO") BoardVO bbsVO) {
+	public String freeWrite(BoardVO boardVO) {
+		log.debug(boardVO.toString());
 		
-		return "home";
+		return "redirect:/comsc/free";
 	}
 	
 	@RequestMapping(value="/info", method=RequestMethod.GET)

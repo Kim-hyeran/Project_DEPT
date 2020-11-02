@@ -20,27 +20,27 @@ public class FreeServiceImpl implements BoardService {
 	}
 
 	@Override
-	public BoardVO findById(long seq) {
+	public BoardVO findBySeq(long seq) {
 		// TODO Auto-generated method stub
-		return null;
+		return freeDao.findBySeq(seq);
 	}
 
 	@Override
-	public int insert(BoardVO bbsVO) {
+	public int insert(BoardVO boardVO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return freeDao.insert(boardVO);
 	}
 
 	@Override
-	public int update(BoardVO bbsVO) {
+	public int update(BoardVO boardVO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return freeDao.update(boardVO);
 	}
 
 	@Override
 	public int delete(long seq) {
 		// TODO Auto-generated method stub
-		return 0;
+		return freeDao.delete(seq);
 	}
 
 }
