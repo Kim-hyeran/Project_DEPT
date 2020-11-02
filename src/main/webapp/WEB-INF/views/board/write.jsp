@@ -39,6 +39,8 @@
 </script>
 <form method="POST">
   <div class="write_title">
+	<input name="cs_date" value="${NOTI_VO.cs_date}" type="hidden" />
+  	<input name="cs_time" value="${NOTI_VO.cs_time}" type="hidden" />
     <input class="title_input" name="cs_title" value="${NOTI_VO.cs_title}" placeholder="제목을 입력하세요" />
   </div>
   <div class="write_body">

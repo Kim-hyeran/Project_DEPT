@@ -39,12 +39,14 @@
 </script>
 <form method="POST">
   <div class="write_title">
+  	<input name="cs_date" value="${FREE_VO.cs_date}" type="hidden" />
+  	<input name="cs_time" value="${FREE_VO.cs_time}" type="hidden" />
     <input class="title_input" name="cs_title" value="${FREE_VO.cs_title}" placeholder="제목을 입력하세요" />
   </div>
   <div class="write_body">
     <textarea id="summer_note" name="cs_text">${FREE_VO.cs_text}</textarea>
   </div>
-  <div><label>파일 첨부</label><input type="file" id="write_file" accept="image/*" /></div>
+  <div><label>이미지 첨부</label><input type="file" id="write_file" name="image" accept="image/*" /></div>
   <div class="write_submit">
     <button id="back_to_list" type="button">취소</button>
     <button id="submit">등록</button>
