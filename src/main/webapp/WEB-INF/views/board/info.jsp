@@ -16,7 +16,6 @@
      <thead>
        <tr>
          <th>번호</th>
-         <th>구분</th>
          <th>제목</th>
          <th>글쓴이</th>
          <th>작성일</th>
@@ -27,14 +26,13 @@
        <c:choose>
 			<c:when test="${empty INFO_LIST}">
 				<tr>
-					<td colspan="6">데이터가 존재하지 않습니다.</td>
+					<td colspan="5">데이터가 존재하지 않습니다.</td>
 				</tr>
 			</c:when>
 			<c:otherwise>
 				<c:forEach items="${INFO_LIST}" var="INFO_VO" varStatus="i">
 			        <tr id="tr_body">
 			            <td>${i.count}</td>
-			            <td>${INFO_VO.cs_category}</td>
 			            <td class="board_title" data-seq="${INFO_VO.cs_seq}">${INFO_VO.cs_title}</td>
 			            <td>${INFO_VO.cs_writer}</td>
 			            <td>${INFO_VO.cs_date}</td>

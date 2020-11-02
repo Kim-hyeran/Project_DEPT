@@ -27,6 +27,10 @@ public class BoardController {
 	@Qualifier("freeService")
 	private BoardService freeService;
 	
+	@Autowired
+	@Qualifier("infoService")
+	private BoardService infoService;
+	
 	@RequestMapping(value={"/", ""}, method=RequestMethod.GET)
 	public String main() {
 		
@@ -77,18 +81,39 @@ public class BoardController {
 		return "redirect:/comsc/free";
 	}
 	
+	
+	// 정보게시판
 	@RequestMapping(value="/info", method=RequestMethod.GET)
 	public String info(Model model) {
+		List<BoardVO> infoList=infoService.selectAll();
+		
+		model.addAttribute("INFO_LIST", infoList);
 		model.addAttribute("BODY", "INFO_BOARD");
 		
 		return "home";
 	}
 	
 	@RequestMapping(value="/info/write", method=RequestMethod.GET)
-	public String infoWrite(Model model) {
+	public String infoWrite(@ModelAttribute("INFO_VO") BoardVO boardVO, Model model) {
+		LocalDateTime ldt=LocalDateTime.now();
+		
+		String date=DateTimeFormatter.ofPattern("yyyy-MM-dd").format(ldt);
+		String time=DateTimeFormatter.ofPattern("HH:mm:SS").format(ldt);
+		
+		boardVO=BoardVO.builder().cs_date(date).cs_time(time).build();
+		
 		model.addAttribute("BODY", "INFO_WRITE");
+		model.addAttribute("INFO_VO", boardVO);
 		
 		return "home";
+	}
+	
+	@RequestMapping(value="/info/write", method=RequestMethod.POST)
+	public String infoWrite(BoardVO boardVO) {
+		log.debug(boardVO.toString());
+		infoService.insert(boardVO);
+		
+		return "redirect:/comsc/info";
 	}
 
 }

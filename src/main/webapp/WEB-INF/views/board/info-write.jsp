@@ -48,7 +48,7 @@
         <option value="recommend">추천</option>
         <option value="review">후기</option>
      </select>
-    <label class="title_label"></label><input class="title_input" name="cs_title" value="value=${INFO_VO.cs_title}" placeholder="제목을 입력하세요" />
+    <label class="title_label"></label><input class="title_input" name="cs_title" value="${INFO_VO.cs_title}" placeholder="제목을 입력하세요" />
   </div>
   <div class="write_body">
     <textarea id="summer_note" name="cs_text">${INFO_VO.cs_text}</textarea>
