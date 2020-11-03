@@ -10,6 +10,12 @@
 	    })
 	})
 </script>
+<style>
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+</style>
 <div class="bbs_area">
   <div class="bbs_title_area">
     <div class="bbs_title">
@@ -19,8 +25,8 @@
       <div class="nickname">장이지</div>
       <div class="comment_date">2020-08-01 | 08:01</div>
       <div class="mem_func">
-        <div id="modify">수정</div>
-        <div id="delete">삭제</div>
+        <div id="modify"><a href="${rootPath}/comsc/free/update/${seq}">수정</a></div>
+        <div id="delete"><a href="${rootPath}/comsc/free/delete/${seq}">삭제</a></div>
         <div id="scrap">스크랩</div>
       </div>
     </div>

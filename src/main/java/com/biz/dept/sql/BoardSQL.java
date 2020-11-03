@@ -37,6 +37,7 @@ public class BoardSQL {
 		
 		sql.INSERT_INTO("tbl_cs_info");
 		sql.INTO_COLUMNS("cs_info_seq").INTO_VALUES("#{cs_seq}");
+		sql.INTO_COLUMNS("cs_info_cate").INTO_VALUES("#{cs_category}");
 		sql.INTO_COLUMNS("cs_info_date").INTO_VALUES("#{cs_date}");
 		sql.INTO_COLUMNS("cs_info_time").INTO_VALUES("#{cs_time}");
 		sql.INTO_COLUMNS("cs_info_title").INTO_VALUES("#{cs_title}");
