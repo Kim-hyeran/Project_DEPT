@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.biz.dept.model.BoardVO;
 import com.biz.dept.service.BoardService;
@@ -31,12 +32,16 @@ public class BoardController {
 	@Qualifier("infoService")
 	private BoardService infoService;
 	
+	
+	// 게시판 메인 화면
 	@RequestMapping(value={"/", ""}, method=RequestMethod.GET)
 	public String main() {
 		
 		return "home";
 	}
 	
+	
+	// 자유게시판
 	@RequestMapping(value="/free", method=RequestMethod.GET)
 	public String free(Model model) {
 		List<BoardVO> freeList=freeService.selectAll();
@@ -52,7 +57,7 @@ public class BoardController {
 		long long_seq = Long.valueOf(seq);
 		BoardVO boardVO = freeService.findBySeq(long_seq);
 		
-		model.addAttribute("FREE_VO",boardVO);
+		model.addAttribute("FREE_VO", boardVO);
 		model.addAttribute("BODY", "FREE_DETAIL");
 		
 		return "home";
@@ -77,6 +82,33 @@ public class BoardController {
 	public String freeWrite(BoardVO boardVO) {
 		log.debug(boardVO.toString());
 		freeService.insert(boardVO);
+		
+		return "redirect:/comsc/free";
+	}
+	
+	@RequestMapping(value="/free/update/{seq}", method=RequestMethod.GET)
+	public String freeUpdate(String seq,  Model model) {
+		BoardVO boardVO=freeService.findBySeq(Long.valueOf(seq));
+		
+		model.addAttribute("BODY", "FREE_WRITE");
+		model.addAttribute("FREE_VO", boardVO);
+		
+		return "home";
+	}
+	
+	@RequestMapping(value="/free/update", method=RequestMethod.POST)
+	public String freeUpdate(BoardVO boardVO) {
+		log.debug(boardVO.toString());
+		freeService.update(boardVO);
+		
+		return "redirect:/comsc/free";
+	}
+	
+	@RequestMapping(value="/free/delete", method=RequestMethod.GET)
+	public String freeDelete(String seq) {
+		Long long_seq=Long.valueOf(seq);
+		
+		freeService.delete(long_seq);
 		
 		return "redirect:/comsc/free";
 	}

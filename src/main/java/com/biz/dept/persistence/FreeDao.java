@@ -21,10 +21,10 @@ public interface FreeDao {
 
 	@InsertProvider(type = BoardSQL.class, method = "free_insert")
 	@SelectKey(keyProperty = "cs_seq", statement = "SELECT cs_free_seq.NEXTVAL FROM DUAL", resultType = Long.class, before = true)
-	public int insert(BoardVO bbsVO);
+	public int insert(BoardVO boardVO);
 
 	@UpdateProvider(type = BoardSQL.class, method = "free_update")
-	public int update(BoardVO bbsVO);
+	public int update(BoardVO boardVO);
 
 	@Delete("DELETE FROM tbl_cs_free WHERE cs_free_seq = #{cs_seq}")
 	public int delete(long seq);

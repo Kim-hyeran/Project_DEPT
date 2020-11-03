@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/main.css?ver=2020-10-22-002" />
+<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/main.css?ver=2020-11-03-001" />
 <div id="container">
   <div id="free_board_m">
     <h4>자유게시판</h4>

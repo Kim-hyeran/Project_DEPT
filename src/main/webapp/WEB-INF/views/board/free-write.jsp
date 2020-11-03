@@ -39,6 +39,7 @@
 </script>
 <form method="POST">
   <div class="write_title">
+	<input name="cs_seq" value="${FREE_VO.cs_seq}" type="hidden" />
   	<input name="cs_date" value="${FREE_VO.cs_date}" type="hidden" />
   	<input name="cs_time" value="${FREE_VO.cs_time}" type="hidden" />
     <input class="title_input" name="cs_title" value="${FREE_VO.cs_title}" placeholder="제목을 입력하세요" />

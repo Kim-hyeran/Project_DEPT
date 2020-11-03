@@ -50,7 +50,7 @@
 					<%@ include file="/WEB-INF/views/board/free-write.jsp"%>
 				</c:when>
 				<c:when test="${BODY == 'FREE_DETAIL'}">
-					<%@ include file="/WEB-INF/views/board/detail.jsp"%>
+					<%@ include file="/WEB-INF/views/board/free-detail.jsp"%>
 				</c:when>
 				<c:when test="${BODY == 'INFO_BOARD'}">
 					<%@ include file="/WEB-INF/views/board/info.jsp"%>
@@ -58,11 +58,17 @@
 				<c:when test="${BODY == 'INFO_WRITE'}">
 					<%@ include file="/WEB-INF/views/board/info-write.jsp"%>
 				</c:when>
+				<c:when test="${BODY == 'INFO_DETAIL'}">
+					<%@ include file="/WEB-INF/views/board/info-detail.jsp"%>
+				</c:when>
 				<c:when test="${BODY == 'NOTI_BOARD'}">
 					<%@ include file="/WEB-INF/views/board/notice.jsp"%>
 				</c:when>
 				<c:when test="${BODY == 'NOTI_WRITE'}">
-					<%@ include file="/WEB-INF/views/board/write.jsp"%>
+					<%@ include file="/WEB-INF/views/board/noti-write.jsp"%>
+				</c:when>
+				<c:when test="${BODY == 'NOTI_DETAIL'}">
+					<%@ include file="/WEB-INF/views/board/noti-detail.jsp"%>
 				</c:when>
 				<c:otherwise>
 					<%@ include file="/WEB-INF/views/board/main.jsp"%>
