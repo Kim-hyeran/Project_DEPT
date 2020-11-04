@@ -39,8 +39,9 @@
 </script>
 <form method="POST">
   <div class="write_title">
-	<input name="cs_date" value="${INFO_VO.cs_date}" type="hidden" />
-  	<input name="cs_time" value="${INFO_VO.cs_time}" type="hidden" />
+	<input name="cs_info_seq" value="${INFO_VO.cs_info_seq}" type="hidden" />
+	<input name="cs_date" value="${INFO_VO.cs_info_date}" type="hidden" />
+  	<input name="cs_time" value="${INFO_VO.cs_info_time}" type="hidden" />
   	<select name="category" id="category">
         <option value="license">자격증</option>
         <option value="contest">공모전</option>
@@ -48,10 +49,10 @@
         <option value="recommend">추천</option>
         <option value="review">후기</option>
      </select>
-    <label class="title_label"></label><input class="title_input" name="cs_title" value="${INFO_VO.cs_title}" placeholder="제목을 입력하세요" />
+    <label class="title_label"></label><input class="title_input" name="cs_title" value="${INFO_VO.cs_info_title}" placeholder="제목을 입력하세요" />
   </div>
   <div class="write_body">
-    <textarea id="summer_note" name="cs_text">${INFO_VO.cs_text}</textarea>
+    <textarea id="summer_note" name="cs_text">${INFO_VO.cs_info_text}</textarea>
   </div>
   <div><label>파일 첨부</label><input type="file" id="write_file" /></div>
   <div class="write_submit">

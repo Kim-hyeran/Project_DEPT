@@ -8,25 +8,26 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.UpdateProvider;
 
-import com.biz.dept.model.BoardVO;
+import com.biz.dept.model.FreeVO;
+import com.biz.dept.model.InfoVO;
 import com.biz.dept.sql.BoardSQL;
 
 public interface InfoDao {
 
 	@Select("SELECT * FROM tbl_cs_info ORDER BY cs_info_seq DESC")
-	public List<BoardVO> selectAll();
+	public List<InfoVO> selectAll();
 
-	@Select("SELECT * FROM tbl_cs_info WHERE cs_info_seq = #{cs_seq}")
-	public BoardVO findBySeq(long seq);
+	@Select("SELECT * FROM tbl_cs_info WHERE cs_info_seq = #{cs_info_seq}")
+	public InfoVO findBySeq(long seq);
 
 	@InsertProvider(type = BoardSQL.class, method = "info_insert")
-	@SelectKey(keyProperty = "cs_seq", statement = "SELECT cs_info_seq.NEXTVAL FROM DUAL", resultType = Long.class, before = true)
-	public int insert(BoardVO boardVO);
+	@SelectKey(keyProperty = "cs_info_seq", statement = "SELECT cs_info_seq.NEXTVAL FROM DUAL", resultType = Long.class, before = true)
+	public int insert(InfoVO infoVO);
 
 	@UpdateProvider(type = BoardSQL.class, method = "info_update")
-	public int update(BoardVO boardVO);
+	public int update(InfoVO infoVO);
 
-	@Delete("DELETE FROM tbl_cs_info WHERE cs_info_seq = #{cs_seq}")
+	@Delete("DELETE FROM tbl_cs_info WHERE cs_info_seq = #{cs_info_seq}")
 	public int delete(long seq);
 
 }

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/free.css?ver=2020-10-15-001" />
+<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/list.css?ver=2020-10-15-001" />
 <script>
 	$(function () {
 	    $("div.write_btn").click(function () {
@@ -33,10 +33,10 @@
 				<c:forEach items="${FREE_LIST}" var="FREE_VO" varStatus="i">
 			        <tr id="tr_body">
 			            <td>${i.count}</td>
-			            <td class="board_title" data-seq="${FREE_VO.cs_seq}">${FREE_VO.cs_title}</td>
-			            <td>${FREE_VO.cs_writer}</td>
-			            <td>${FREE_VO.cs_date}</td>
-			            <td>${FREE_VO.cs_count}</td>
+			            <td class="board_title" data-seq="${FREE_VO.cs_free_seq}"><a href="${rootPath}/comsc/free/${FREE_VO.cs_free_seq}">${FREE_VO.cs_free_title}</a></td>
+			            <td>${FREE_VO.cs_free_writer}</td>
+			            <td>${FREE_VO.cs_free_date}</td>
+			            <td>${FREE_VO.cs_free_count}</td>
 			            <td></td>
 			        </tr>
 				</c:forEach>
