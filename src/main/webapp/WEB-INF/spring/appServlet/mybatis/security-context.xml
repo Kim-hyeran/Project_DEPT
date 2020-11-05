@@ -64,12 +64,20 @@
 		<security:intercept-url pattern="/**" access="permitAll()"/>
 	</security:http>
 	
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="member" password="member" authorities="ROLE_MEMBER"/>
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	
 	<!-- 회원가입, 로그인에서 사용자의 비밀번호를 암호화하기 위해 -->
 	<!-- 암호화 도구를 bean으로 설정 -->
 	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 		<constructor-arg value="4"></constructor-arg>
 	</bean>
 	
-	<security:authentication-manager></security:authentication-manager>
+	
 
 </beans>

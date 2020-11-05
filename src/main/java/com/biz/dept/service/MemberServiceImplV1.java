@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.biz.dept.mapper.AuthorityDao;
 import com.biz.dept.mapper.UserDao;
 import com.biz.dept.model.AuthorityVO;
+import com.biz.dept.model.MemberVO;
 import com.biz.dept.model.UserDetailsVO;
 
 import lombok.RequiredArgsConstructor;
@@ -124,14 +125,39 @@ public class MemberServiceImplV1 implements MemberService{
 	}
 
 	@Override
-	public UserDetailsVO findById(String username) {
-		UserDetailsVO userVO = userDao.findById(username);
-		
-		return userVO;
+	public List<MemberVO> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public int update(UserDetailsVO userVO) {
-		return userDao.update(userVO);
+	public int insert(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
+	@Override
+	public int update(MemberVO vo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int delete(String id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public MemberVO findById(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MemberVO login(MemberVO loginVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

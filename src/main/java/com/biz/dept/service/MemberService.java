@@ -1,13 +1,16 @@
 package com.biz.dept.service;
 
+import com.biz.dept.model.MemberVO;
 import com.biz.dept.model.UserDetailsVO;
 
-public interface MemberService {
+public interface MemberService extends GenericService<MemberVO, String> {
 	public int insert(UserDetailsVO userVO);
 
-	public UserDetailsVO findById(String username);
+	public MemberVO findById(String username);
 	
 	public String userNameAndPassword(String username, String password);
 
-	public int update(UserDetailsVO userVO);
+	//public int update(MemberVO userVO);
+	
+	public MemberVO login(MemberVO loginVO);
 }
