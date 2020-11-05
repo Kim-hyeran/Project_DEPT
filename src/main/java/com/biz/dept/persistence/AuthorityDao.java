@@ -1,4 +1,5 @@
 package com.biz.dept.mapper;
+package com.biz.dept.persistence;
 
 import java.util.List;
 
