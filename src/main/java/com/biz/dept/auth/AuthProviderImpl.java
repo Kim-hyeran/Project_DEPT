@@ -1,24 +1,8 @@
 package com.biz.dept.auth;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.InternalAuthenticationServiceException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import com.biz.dept.model.AuthorityVO;
-import com.biz.dept.model.UserDetailsVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -44,102 +28,18 @@ import lombok.extern.slf4j.Slf4j;
  * 	  사용가능한 정보인지를 알아본다.
  */
 @Slf4j
-public class AuthProviderImpl implements AuthenticationProvider {
-
-	@Autowired
-	@Qualifier("userDetailServiceV1")
-	private UserDetailsService userService;
-
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-
-	/*
-	 * 사용자가 로그인을 수행했을 때 username과 password를 주입받아서 정상적인 사용자인가를 검사하는 method
-	 */
-	@Override
+public class AuthProviderImpl implements AuthenticationProvider {@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-
-		// 로그인한 사용자의 username과 password를 authentication 객체로부터 getter
-		String username = (String) authentication.getPrincipal();
-		String password = (String) authentication.getCredentials();
-
-		// 로그인 인증하는 부분
-		// 1. UserDetailService에 username을 전달하고 DB로부터 사용자정보를
-		// select한 결과를 userVO에 받는다.
-		UserDetailsVO userVO = (UserDetailsVO) userService.loadUserByUsername(username);
-
-		// username = "adming" or "user1" or "guest"
-		boolean bUser = username.equals("admin");
-		bUser |= username.equals("user1");
-		bUser |= username.equals("guest");
-
-		// 사용자 ID 검사하기
-		if (!bUser) {
-
-			String msg = String.format("✔ [ %s ] ID를 확인하세요", username);
-
-			/*
-			 * throw new Exception(message) throw: 강제로 exception을 발생시켜라
-			 * 
-			 * spring security login이 진행되는 도중에 어떤 문제가 발생을 하면 메시지를 만들고 강제로 exception을 발생시키면
-			 * spring security에게 메시지를 전달하는 효과가 나타난다.
-			 * 
-			 * authenticate() method는 실행을 멈추고 spring security가 메시지를 수신하여 다시 login 화면을 열고
-			 * 메시지를 보여준다.
-			 */
-			throw new InternalAuthenticationServiceException(msg);
-			// throw new UsernameNotFoundException(msg);
-		}
-
-		// 2. 비밀번호 검사
-		// 비밀 번호를 암호화하지 않았을 경우 문자열 비교하기
-//		if(!password.equals(userVO.getPassword())){ // 비밀번호 일치하지 않으면
-//			throw new BadCredentialsException("비밀번호 오류");
-//		}
-
-		// PasswordEncoder로 암호화된 비밀번호 비교하기
-		/*
-		 * 사용자가 입력한 password 평문 문자열을 내부에서 암호화하여 DB에 저장되어 있는 암호화된
-		 * 비번(userV).getPassword())을 비교하여 일치하는지 검사한다.
-		 */
-		if (!passwordEncoder.matches(password, userVO.getPassword())) {
-			throw new BadCredentialsException("비밀번호가 일치하지 않음 :(");
-		}
-		;
-
-		// 3. 유효한 사용자 정보인가
-		if (!userVO.isEnabled()) {
-			throw new BadCredentialsException(username + " 사용자 정보 사용불가");
-		}
-
-		// 4. (임시) 사용자의 권한 리스트를 생성
-
-		// 가. 임시로 사용자의 권한 리스트를 생성하기 위하여
-		// AuthorityVO를 담은 List를 생성하고
-		// 권한(ROLE)값을 지정하여 add()
-//		List<AuthorityVO> authList = new ArrayList<AuthorityVO>();
-//		authList.add(AuthorityVO.builder().authority("ROLE_ADMIN").build());
-//		authList.add(AuthorityVO.builder().authority("ROLE_USER").build());
-
-		// 나. spring security의 hasRole() method에서 사용할 자료형으로 변환
-//		List<GrantedAuthority> rollList = new ArrayList<GrantedAuthority>();
-
-//		for(AuthorityVO auth : authList) {
-//			rollList.add(new SimpleGrantedAuthority(auth.getAuthority()));
-//		}
-
-		// 로그인한 사용자에게 인증 token을 발행
-		// 사용자의 detail정보와 roll정보를 token에 같이 심어놓는다.
-		return new UsernamePasswordAuthenticationToken(userVO, null, userVO.getAuthorities());
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public boolean supports(Class<?> authentication) {
-		// 현재 만들어진 AuthProviderImpl을 spring-security에서 사용가능하도록 설정
-		// return값을 true로 하여 사용가능한 상태로 변환
-		// supports()의 return값이 false이면 ...Token을 사용하지 않겠다는 의미
-		// 반드시 true로 해줘야 한다.
-		return true;
+		// TODO Auto-generated method stub
+		return false;
 	}
+
+
 
 }
