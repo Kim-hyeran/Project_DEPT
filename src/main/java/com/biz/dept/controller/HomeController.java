@@ -33,6 +33,8 @@ public class HomeController {
 		return "index";
 	}
 
+	
+	// 공지사항 게시판
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice(Model model) {
 		List<NotiVO> notiList=notiService.selectAll();
@@ -42,7 +44,8 @@ public class HomeController {
 
 		return "home";
 	}
-
+	
+	// 공지사항 쓰기 GET
 	@RequestMapping(value = "/notice/write", method = RequestMethod.GET)
 	public String notiWrite(@ModelAttribute("NOTI_VO") NotiVO notiVO, Model model) {
 		LocalDateTime ldt = LocalDateTime.now();
@@ -58,6 +61,7 @@ public class HomeController {
 		return "home";
 	}
 
+	// 공지사항 쓰기 POST
 	@RequestMapping(value = "/notice/write", method = RequestMethod.POST)
 	public String notiWrite(NotiVO notiVO) {
 		log.debug(notiVO.toString());
@@ -66,6 +70,7 @@ public class HomeController {
 		return "redirect:/notice";
 	}
 
+	// 공지사항 상세페이지
 	@RequestMapping(value = "/notice/{seq}", method = RequestMethod.GET)
 	public String freeDetail(@PathVariable String seq, Model model) {
 		long long_seq = Long.valueOf(seq);
@@ -77,6 +82,7 @@ public class HomeController {
 		return "home";
 	}
 
+	// 공지사항 수정 GET
 	@RequestMapping(value = "/notice/update/{seq}", method = RequestMethod.GET)
 	public String freeUpdate(@PathVariable String seq, Model model) {
 		Long long_seq = Long.valueOf(seq);
@@ -88,6 +94,7 @@ public class HomeController {
 		return "home";
 	}
 
+	// 공지사항 수정 POST
 	@RequestMapping(value = "/notice/update/{seq}", method = RequestMethod.POST)
 	public String freeUpdate(NotiVO notiVO) {
 		log.debug(notiVO.toString());
@@ -96,6 +103,7 @@ public class HomeController {
 		return "redirect:/notice/{seq}";
 	}
 
+	// 공지사항 삭제
 	@RequestMapping(value = "/notice/delete/{seq}", method = RequestMethod.GET)
 	public String freeDelete(@PathVariable String seq) {
 		Long long_seq = Long.valueOf(seq);

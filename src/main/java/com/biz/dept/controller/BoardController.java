@@ -37,6 +37,7 @@ public class BoardController {
 	private InfoService infoService;
 
 	@Autowired
+	@Qualifier("fileService")
 	private FileService fileService;
 
 	// 게시판 메인 화면
@@ -52,7 +53,7 @@ public class BoardController {
 	}
 
 	// 자유게시판
-	// 게시판 리스트
+	// 자유게시판 리스트
 	@RequestMapping(value = "/free", method = RequestMethod.GET)
 	public String free(Model model) {
 		List<FreeVO> freeList = freeService.selectAll();
@@ -63,7 +64,7 @@ public class BoardController {
 		return "home";
 	}
 
-	// 게시물 상세페이지
+	// 자유게시판 상세페이지
 	@RequestMapping(value = "/free/{seq}", method = RequestMethod.GET)
 	public String freeDetail(@PathVariable String seq, Model model) {
 		long long_seq = Long.valueOf(seq);
@@ -75,7 +76,7 @@ public class BoardController {
 		return "home";
 	}
 
-	// 게시물 작성 GET
+	// 자유게시판 글 작성 GET
 	@RequestMapping(value = "/free/write", method = RequestMethod.GET)
 	public String freeWrite(@ModelAttribute("FREE_VO") FreeVO freeVO, Model model) {
 		LocalDateTime ldt = LocalDateTime.now();
@@ -91,7 +92,7 @@ public class BoardController {
 		return "home";
 	}
 
-	// 게시물 작성 POST
+	// 자유게시판 글 작성 POST
 	@RequestMapping(value = "/free/write", method = RequestMethod.POST)
 	public String freeWrite(@ModelAttribute FreeVO freeVO,
 			@RequestParam(value = "file", required = false) MultipartFile file) {
@@ -109,6 +110,7 @@ public class BoardController {
 		return "redirect:/comsc/free";
 	}
 
+	// 자유게시판 글 수정 GET
 	@RequestMapping(value = "/free/update/{seq}", method = RequestMethod.GET)
 	public String freeUpdate(@PathVariable String seq, Model model) {
 		long long_seq = Long.valueOf(seq);
@@ -120,6 +122,7 @@ public class BoardController {
 		return "home";
 	}
 
+	// 자유게시판 글 수정 POST
 	@RequestMapping(value = "/free/update/{seq}", method = RequestMethod.POST)
 	public String freeUpdate(FreeVO freeVO, @RequestParam(value = "file", required = false) MultipartFile file) {
 		log.debug(freeVO.toString());
@@ -144,6 +147,7 @@ public class BoardController {
 		return "redirect:/comsc/free/{seq}";
 	}
 
+	// 자유게시판 글 삭제
 	@RequestMapping(value = "/free/delete/{seq}", method = RequestMethod.GET)
 	public String freeDelete(@PathVariable String seq) {
 		Long long_seq = Long.valueOf(seq);
@@ -158,7 +162,9 @@ public class BoardController {
 		return "redirect:/comsc/free";
 	}
 
+	
 	// 정보게시판
+	// 정보게시판 목록
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
 	public String info(Model model) {
 		List<InfoVO> infoList = infoService.selectAll();
@@ -169,6 +175,7 @@ public class BoardController {
 		return "home";
 	}
 
+	// 정보게시판 글 작성 GET
 	@RequestMapping(value = "/info/write", method = RequestMethod.GET)
 	public String infoWrite(@ModelAttribute("INFO_VO") InfoVO infoVO, Model model) {
 		LocalDateTime ldt = LocalDateTime.now();
@@ -184,6 +191,7 @@ public class BoardController {
 		return "home";
 	}
 
+	// 정보게시판 글 작성 POST
 	@RequestMapping(value = "/info/write", method = RequestMethod.POST)
 	public String infoWrite(@ModelAttribute InfoVO infoVO,
 			@RequestParam(value = "file", required = false) MultipartFile file) {
@@ -201,6 +209,7 @@ public class BoardController {
 		return "redirect:/comsc/info";
 	}
 
+	// 정보게시판 상세페이지
 	@RequestMapping(value = "/info/{seq}", method = RequestMethod.GET)
 	public String infoDetail(@PathVariable String seq, Model model) {
 		long long_seq = Long.valueOf(seq);
@@ -212,6 +221,7 @@ public class BoardController {
 		return "home";
 	}
 
+	// 정보게시판 글 수정 GET
 	@RequestMapping(value = "/info/update/{seq}", method = RequestMethod.GET)
 	public String infoUpdate(@PathVariable String seq, Model model) {
 		long long_seq = Long.valueOf(seq);
@@ -223,6 +233,7 @@ public class BoardController {
 		return "home";
 	}
 
+	// 정보게시판 글 수정 POST
 	@RequestMapping(value = "/info/update/{seq}", method = RequestMethod.POST)
 	public String infoUpdate(InfoVO infoVO, @RequestParam(value = "file", required = false) MultipartFile file) {
 		log.debug(infoVO.toString());
@@ -247,6 +258,7 @@ public class BoardController {
 		return "redirect:/comsc/info/{seq}";
 	}
 
+	// 정보게시판 글 삭제
 	@RequestMapping(value = "/info/delete/{seq}", method = RequestMethod.GET)
 	public String infoDelete(@PathVariable String seq) {
 		Long long_seq = Long.valueOf(seq);
