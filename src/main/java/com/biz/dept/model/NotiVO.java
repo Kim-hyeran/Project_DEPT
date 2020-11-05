@@ -13,16 +13,14 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Builder
-public class BoardVO {
+public class NotiVO {
 	
-	private long cs_seq;
-	private String cs_title;
-	private String cs_writer;
-	private String cs_date;
-	private String cs_time;
-	private String cs_text;
-	private String cs_category;
-	private String cs_image;
-	private String cs_count;
+	private long cs_noti_seq;
+	private String cs_noti_title;
+	private String cs_noti_writer;
+	private String cs_noti_date;
+	private String cs_noti_time;
+	private String cs_noti_text;
+	private String cs_noti_count;
 
 }

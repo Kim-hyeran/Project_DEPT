@@ -5,37 +5,37 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.biz.dept.model.BoardVO;
+import com.biz.dept.model.InfoVO;
 import com.biz.dept.persistence.InfoDao;
 
 @Service("infoService")
-public class InfoServiceImpl implements BoardService {
+public class InfoServiceImpl implements InfoService {
 	
 	@Autowired
 	private InfoDao infoDao;
 
 	@Override
-	public List<BoardVO> selectAll() {
+	public List<InfoVO> selectAll() {
 		// TODO Auto-generated method stub
 		return infoDao.selectAll();
 	}
 
 	@Override
-	public BoardVO findBySeq(long seq) {
+	public InfoVO findBySeq(long seq) {
 		// TODO Auto-generated method stub
 		return infoDao.findBySeq(seq);
 	}
 
 	@Override
-	public int insert(BoardVO boardVO) {
+	public int insert(InfoVO infoVO) {
 		// TODO Auto-generated method stub
-		return infoDao.insert(boardVO);
+		return infoDao.insert(infoVO);
 	}
 
 	@Override
-	public int update(BoardVO boardVO) {
+	public int update(InfoVO infoVO) {
 		// TODO Auto-generated method stub
-		return infoDao.update(boardVO);
+		return infoDao.update(infoVO);
 	}
 
 	@Override

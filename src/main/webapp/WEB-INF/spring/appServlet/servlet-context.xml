@@ -11,9 +11,14 @@
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
+	
+	<beans:bean id="winPath" class="java.lang.String">
+		<beans:constructor-arg value="C:/bizwork/workspace/upload" />
+	</beans:bean>
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/static/**" location="/static/" />
+	<resources mapping="/files/**" location="/files/, file:///c:/bizwork/workspace/upload/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -21,6 +26,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.biz.dept" />
+	<context:component-scan base-package="com.biz.dept.controller" />
+	<context:component-scan base-package="com.biz.dept.service" />
 	
 </beans:beans>

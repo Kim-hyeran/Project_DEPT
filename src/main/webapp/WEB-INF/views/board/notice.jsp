@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/free.css?ver=2020-10-15-001" />
+<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/list.css?ver=2020-10-15-001" />
 <script>
 	$(function () {
 	    $("div.write_btn").click(function () {
-	        document.location.href = "${rootPath}/write"
+	        document.location.href = "${rootPath}/notice/write"
 	    })
 	})
 </script>
@@ -33,10 +33,10 @@
 				<c:forEach items="${NOTI_LIST}" var="NOTI_VO" varStatus="i">
 			        <tr id="tr_body">
 			            <td>${i.count}</td>
-			            <td class="board_title" data-seq="${NOTI_VO.cs_seq}">${NOTI_VO.cs_title}</td>
-			            <td>${NOTI_VO.cs_writer}</td>
-			            <td>${NOTI_VO.cs_date}</td>
-			            <td>${NOTI_VO.cs_count}</td>
+			            <td class="board_title" data-seq="${NOTI_VO.cs_noti_seq}"><a href="${rootPath}/notice/${NOTI_VO.cs_noti_seq}">${NOTI_VO.cs_noti_title}</a></td>
+			            <td>${NOTI_VO.cs_noti_writer}</td>
+			            <td>${NOTI_VO.cs_noti_date}</td>
+			            <td>${NOTI_VO.cs_noti_count}</td>
 			            <td></td>
 			        </tr>
 				</c:forEach>

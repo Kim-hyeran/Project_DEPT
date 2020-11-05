@@ -9,12 +9,12 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.INSERT_INTO("tbl_cs_free");
-		sql.INTO_COLUMNS("cs_free_seq").INTO_VALUES("#{cs_seq}");
-		sql.INTO_COLUMNS("cs_free_date").INTO_VALUES("#{cs_date}");
-		sql.INTO_COLUMNS("cs_free_time").INTO_VALUES("#{cs_time}");
-		sql.INTO_COLUMNS("cs_free_title").INTO_VALUES("#{cs_title}");
-		sql.INTO_COLUMNS("cs_free_text").INTO_VALUES("#{cs_text}");
-		sql.INTO_COLUMNS("cs_free_image").INTO_VALUES("#{cs_image}");
+		sql.INTO_COLUMNS("cs_free_seq").INTO_VALUES("#{cs_free_seq}");
+		sql.INTO_COLUMNS("cs_free_date").INTO_VALUES("#{cs_free_date}");
+		sql.INTO_COLUMNS("cs_free_time").INTO_VALUES("#{cs_free_time}");
+		sql.INTO_COLUMNS("cs_free_title").INTO_VALUES("#{cs_free_title}");
+		sql.INTO_COLUMNS("cs_free_text").INTO_VALUES("#{cs_free_text}");
+		sql.INTO_COLUMNS("cs_free_image").INTO_VALUES("#{cs_free_image}");
 		
 		return sql.toString();
 	}
@@ -23,10 +23,10 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.UPDATE("tbl_cs_free");
-		sql.SET("cs_free_title=#{cs_title}");
-		sql.SET("cs_free_text=#{cs_text}");
-		sql.SET("cs_free_image=#{cs_image}");
-		sql.WHERE("cs_free_seq=#{cs_seq}");
+		sql.SET("cs_free_title=#{cs_free_title}");
+		sql.SET("cs_free_text=#{cs_free_text}");
+		sql.SET("cs_free_image=#{cs_free_image}");
+		sql.WHERE("cs_free_seq=#{cs_free_seq}");
 		
 		return sql.toString();
 	}
@@ -36,13 +36,13 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.INSERT_INTO("tbl_cs_info");
-		sql.INTO_COLUMNS("cs_info_seq").INTO_VALUES("#{cs_seq}");
-		sql.INTO_COLUMNS("cs_info_cate").INTO_VALUES("#{cs_category}");
-		sql.INTO_COLUMNS("cs_info_date").INTO_VALUES("#{cs_date}");
-		sql.INTO_COLUMNS("cs_info_time").INTO_VALUES("#{cs_time}");
-		sql.INTO_COLUMNS("cs_info_title").INTO_VALUES("#{cs_title}");
-		sql.INTO_COLUMNS("cs_info_text").INTO_VALUES("#{cs_text}");
-		sql.INTO_COLUMNS("cs_info_image").INTO_VALUES("#{cs_image}");
+		sql.INTO_COLUMNS("cs_info_seq").INTO_VALUES("#{cs_info_seq}");
+		sql.INTO_COLUMNS("cs_info_cate").INTO_VALUES("#{cs_info_category}");
+		sql.INTO_COLUMNS("cs_info_date").INTO_VALUES("#{cs_info_date}");
+		sql.INTO_COLUMNS("cs_info_time").INTO_VALUES("#{cs_info_time}");
+		sql.INTO_COLUMNS("cs_info_title").INTO_VALUES("#{cs_info_title}");
+		sql.INTO_COLUMNS("cs_info_text").INTO_VALUES("#{cs_info_text}");
+		sql.INTO_COLUMNS("cs_info_image").INTO_VALUES("#{cs_info_image}");
 		
 		return sql.toString();
 	}
@@ -51,10 +51,10 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.UPDATE("tbl_cs_info");
-		sql.SET("cs_info_title=#{cs_title}");
-		sql.SET("cs_info_text=#{cs_text}");
-		sql.SET("cs_info_image=#{cs_image}");
-		sql.WHERE("cs_info_seq=#{cs_seq}");
+		sql.SET("cs_info_title=#{cs_info_title}");
+		sql.SET("cs_info_text=#{cs_info_text}");
+		sql.SET("cs_info_image=#{cs_info_image}");
+		sql.WHERE("cs_info_seq=#{cs_info_seq}");
 		
 		return sql.toString();
 	}
@@ -64,11 +64,11 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.INSERT_INTO("tbl_cs_noti");
-		sql.INTO_COLUMNS("cs_noti_seq").INTO_VALUES("#{cs_seq}");
-		sql.INTO_COLUMNS("cs_noti_date").INTO_VALUES("#{cs_date}");
-		sql.INTO_COLUMNS("cs_noti_time").INTO_VALUES("#{cs_time}");
-		sql.INTO_COLUMNS("cs_noti_title").INTO_VALUES("#{cs_title}");
-		sql.INTO_COLUMNS("cs_noti_text").INTO_VALUES("#{cs_text}");
+		sql.INTO_COLUMNS("cs_noti_seq").INTO_VALUES("#{cs_noti_seq}");
+		sql.INTO_COLUMNS("cs_noti_date").INTO_VALUES("#{cs_noti_date}");
+		sql.INTO_COLUMNS("cs_noti_time").INTO_VALUES("#{cs_noti_time}");
+		sql.INTO_COLUMNS("cs_noti_title").INTO_VALUES("#{cs_noti_title}");
+		sql.INTO_COLUMNS("cs_noti_text").INTO_VALUES("#{cs_noti_text}");
 		
 		return sql.toString();
 	}
@@ -77,9 +77,9 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.UPDATE("tbl_cs_noti");
-		sql.SET("cs_noti_title=#{cs_title}");
-		sql.SET("cs_noti_text=#{cs_text}");
-		sql.WHERE("cs_noti_seq=#{cs_seq}");
+		sql.SET("cs_noti_title=#{cs_noti_title}");
+		sql.SET("cs_noti_text=#{cs_noti_text}");
+		sql.WHERE("cs_noti_seq=#{cs_noti_seq}");
 		
 		return sql.toString();
 	}
