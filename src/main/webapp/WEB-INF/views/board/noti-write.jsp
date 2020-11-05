@@ -39,13 +39,13 @@
 </script>
 <form method="POST">
   <div class="write_title">
-  	<input name="cs_noti_seq" value="${FREE_VO.cs_info_seq}" type="hidden" />
-	<input name="cs_date" value="${NOTI_VO.cs_date}" type="hidden" />
-  	<input name="cs_time" value="${NOTI_VO.cs_time}" type="hidden" />
-    <input class="title_input" name="cs_title" value="${NOTI_VO.cs_title}" placeholder="제목을 입력하세요" />
+  	<input name="cs_noti_seq" value="${NOTI_VO.cs_noti_seq}" type="hidden" />
+	<input name="cs_noti_date" value="${NOTI_VO.cs_noti_date}" type="hidden" />
+  	<input name="cs_noti_time" value="${NOTI_VO.cs_noti_time}" type="hidden" />
+    <input class="title_input" name="cs_noti_title" value="${NOTI_VO.cs_noti_title}" placeholder="제목을 입력하세요" />
   </div>
   <div class="write_body">
-    <textarea id="summer_note" name="cs_text">${NOTI_VO.cs_text}</textarea>
+    <textarea id="summer_note" name="cs_noti_text">${NOTI_VO.cs_noti_text}</textarea>
   </div>
   <div><label></label></div>
   <div class="write_submit">

@@ -37,7 +37,7 @@
 		$("#summer_note").summernote({lang:"ko-KR", width:"100%", height:"300px", toolbar:toolbar})
 	})
 </script>
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   <div class="write_title">
 	<input name="cs_free_seq" value="${FREE_VO.cs_free_seq}" type="hidden" />
   	<input name="cs_free_date" value="${FREE_VO.cs_free_date}" type="hidden" />
@@ -47,7 +47,7 @@
   <div class="write_body">
     <textarea id="summer_note" name="cs_free_text">${FREE_VO.cs_free_text}</textarea>
   </div>
-  <div><label>이미지 첨부</label><input type="file" id="write_file" name="image" accept="image/*" /></div>
+  <div><label>이미지 첨부</label><input type="file" id="write_file" name="file" accept="image/*" /></div>
   <div class="write_submit">
     <button id="back_to_list" type="button">취소</button>
     <button id="submit">등록</button>

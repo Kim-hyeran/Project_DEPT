@@ -8,7 +8,6 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.UpdateProvider;
 
-import com.biz.dept.model.FreeVO;
 import com.biz.dept.model.InfoVO;
 import com.biz.dept.sql.BoardSQL;
 

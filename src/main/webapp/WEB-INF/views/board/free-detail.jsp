@@ -47,6 +47,7 @@
   </div>
   <hr />
   <div class="bbs_text_area">
+  	<img src="${rootPath}/files/${FREE_VO.cs_free_image}" width="100%">
     ${FREE_VO.cs_free_text}
   </div>
   <div class="bbs_button_area">

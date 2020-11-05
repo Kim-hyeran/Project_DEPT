@@ -2,6 +2,7 @@ package com.biz.dept.controller;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.biz.dept.model.FreeVO;
 import com.biz.dept.model.NotiVO;
 import com.biz.dept.service.NotiService;
 
@@ -30,17 +30,20 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 
-		return "home";
+		return "index";
 	}
 
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice(Model model) {
+		List<NotiVO> notiList=notiService.selectAll();
+		
+		model.addAttribute("NOTI_LIST", notiList);
 		model.addAttribute("BODY", "NOTI_BOARD");
 
 		return "home";
 	}
 
-	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	@RequestMapping(value = "/notice/write", method = RequestMethod.GET)
 	public String notiWrite(@ModelAttribute("NOTI_VO") NotiVO notiVO, Model model) {
 		LocalDateTime ldt = LocalDateTime.now();
 
@@ -55,7 +58,7 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/write", method = RequestMethod.POST)
+	@RequestMapping(value = "/notice/write", method = RequestMethod.POST)
 	public String notiWrite(NotiVO notiVO) {
 		log.debug(notiVO.toString());
 		notiService.insert(notiVO);
@@ -74,7 +77,7 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/update/{seq}", method = RequestMethod.GET)
+	@RequestMapping(value = "/notice/update/{seq}", method = RequestMethod.GET)
 	public String freeUpdate(@PathVariable String seq, Model model) {
 		Long long_seq = Long.valueOf(seq);
 		NotiVO notiVO = notiService.findBySeq(long_seq);
@@ -82,18 +85,18 @@ public class HomeController {
 		model.addAttribute("BODY", "NOTI_WRITE");
 		model.addAttribute("NOTI_VO", notiVO);
 
-		return "board/noti-write";
+		return "home";
 	}
 
-	@RequestMapping(value = "/update/{seq}", method = RequestMethod.POST)
+	@RequestMapping(value = "/notice/update/{seq}", method = RequestMethod.POST)
 	public String freeUpdate(NotiVO notiVO) {
 		log.debug(notiVO.toString());
 		notiService.update(notiVO);
 
-		return "redirect:/notice";
+		return "redirect:/notice/{seq}";
 	}
 
-	@RequestMapping(value = "/delete/{seq}", method = RequestMethod.GET)
+	@RequestMapping(value = "/notice/delete/{seq}", method = RequestMethod.GET)
 	public String freeDelete(@PathVariable String seq) {
 		Long long_seq = Long.valueOf(seq);
 

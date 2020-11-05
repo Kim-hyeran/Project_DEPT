@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.biz.dept.model.FreeVO;
 import com.biz.dept.model.InfoVO;
 import com.biz.dept.persistence.InfoDao;
 

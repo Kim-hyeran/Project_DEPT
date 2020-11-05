@@ -2,7 +2,6 @@ package com.biz.dept.service;
 
 import java.util.List;
 
-import com.biz.dept.model.FreeVO;
 import com.biz.dept.model.InfoVO;
 
 public interface InfoService {

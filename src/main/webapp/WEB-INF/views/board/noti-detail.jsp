@@ -10,7 +10,7 @@
 	    })
 	    
 	    $("div#modify").click(function () {
-	        document.location.href = "${rootPath}/update/${seq}"
+	        document.location.href = "${rootPath}/notice/update/${NOTI_VO.cs_noti_seq}"
 	    })
 	})
 	
@@ -18,7 +18,7 @@
 		let trash = document.querySelector("#delete")
 		trash.addEventListener("click", function () {
 			if(confirm("삭제할까요?")) {
-				document.location.href="${rootPath}/notice/${NOTI_VO.cs_noti_seq}"
+				document.location.href="${rootPath}/notice/delete/${NOTI_VO.cs_noti_seq}"
 				return false
 			}
 		})

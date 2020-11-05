@@ -47,6 +47,7 @@
   </div>
   <hr />
   <div class="bbs_text_area">
+  	<img src="${rootPath}/files/${INFO_VO.cs_info_image}" width="100%">
     ${INFO_VO.cs_info_text}
   </div>
   <div class="bbs_button_area">
