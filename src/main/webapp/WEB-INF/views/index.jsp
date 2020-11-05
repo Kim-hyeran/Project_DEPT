@@ -5,16 +5,16 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/index.css" />
     <header>
       <div id="btn_box">
-        <button id="loginBtn" onClick="location.href='login.html'">
+        <button id="loginBtn" onClick="location.href='login'">
           로그인
         </button>
-        <button id="signUpBtn" onClick="location.href='signUp.html'">
+        <button id="signUpBtn" onClick="location.href='signup'">
           회원가입
         </button>
       </div>
     </header>
     <div id="div_logo">
-      <img src="../images/dept_logo.png" alt="dept_logo" id="dept_logo" />
+      <img src="../static/images/dept_logo.png" alt="dept_logo" id="dept_logo" />
     </div>
     <section id="contents">
       <section class="left_side">
