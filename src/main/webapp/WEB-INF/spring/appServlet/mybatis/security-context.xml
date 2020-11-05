@@ -53,18 +53,21 @@
 	 	 기본값은 항상 false로 설정한다.
 	 -->
 	<security:http auto-config="true" use-expressions="true">
-		<security:csrf disabled="false"/>
+		
 		<security:form-login login-page="/member/login" 
-						username-parameter="username" 
-						password-parameter="password"
-						login-processing-url="/login"/>
-		<security:logout logout-url="/logout" logout-success-url="/" invalidate-session="true"/>
+							username-parameter="username" 
+							password-parameter="password"
+							
+							login-processing-url="/login"/>
+							
+		<security:logout logout-url="/logout" logout-success-url="/" />
+		<security:csrf disabled="true"/>
 		<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
 		<security:intercept-url pattern="/member/mypage" access="hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')"/>
 		<security:intercept-url pattern="/member/password" access="hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')"/>
-		<security:intercept-url pattern="/member/**" access="permitAll()"/>
-		<security:intercept-url pattern="/dept/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_MEMBER')"/>
-		<security:intercept-url pattern="/**" access="permitAll()"/>
+		<security:intercept-url pattern="/member/**" access="permitAll"/>
+		
+		<security:intercept-url pattern="/**" access="permitAll"/>
 	</security:http>
 	
 	<security:authentication-manager>
