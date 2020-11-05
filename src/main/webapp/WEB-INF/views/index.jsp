@@ -14,7 +14,7 @@
       </div>
     </header>
     <div id="div_logo">
-      <img src="../static/images/dept_logo.png" alt="dept_logo" id="dept_logo" />
+      <img src="${rootPath}/static/images/dept_logo.png" alt="dept_logo" id="dept_logo" />
     </div>
     <section id="contents">
       <section class="left_side">
@@ -57,7 +57,6 @@
                 <i class="fas fa-comment-dollar"></i>
               </section>
               <section class="list_box">
-                <div class="list_title">개강맞이 꿀팁!</div>
                 <div class="list_title">개강맞이 꿀팁!!</div>
                 <div class="list_contents">꼭 학교 서버시간 확인해~!</div>
               </section>
