@@ -44,7 +44,7 @@ public class MemberServiceImplV1 implements MemberService{
 		
 		log.debug("password {}, encPassword{}", password, encPassword);
 		
-		// 사용자의 구너한정보를 설정하기 위해서 authList 객체 선언
+		// 사용자의 권한정보를 설정하기 위해서 authList 객체 선언
 		List<AuthorityVO> authList = new ArrayList<AuthorityVO>();
 		
 		/*

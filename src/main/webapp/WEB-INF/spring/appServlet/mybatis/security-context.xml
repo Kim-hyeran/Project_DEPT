@@ -36,7 +36,7 @@
 	<!-- login 방법 설정 -->
 	<!-- login이 되었을 때 인가,권한에 관한 설정 -->
 	<!-- 
-	security:inetrcept
+	security:intercept
 	login이 되었을 때 URL 패턴에 따라 접근구너한을 세밀하게 부여할 수 있다
 	접근할 URL을 patter 속성에 지정하고
 	접근할 권한이 있는가를 검사하도록 access속성에 지정한다
@@ -69,5 +69,7 @@
 	<bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 		<constructor-arg value="4"></constructor-arg>
 	</bean>
+	
+	<security:authentication-manager></security:authentication-manager>
 
 </beans>

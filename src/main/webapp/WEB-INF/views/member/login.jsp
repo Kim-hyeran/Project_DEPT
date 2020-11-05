@@ -54,6 +54,6 @@
         type="button"
         name=""
         value="Create an Account"
-        onClick="location.href='signup.jsp';"
+        onClick="location.href='signup';"
       />
     </form>
