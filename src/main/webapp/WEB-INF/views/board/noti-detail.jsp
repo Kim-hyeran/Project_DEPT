@@ -36,7 +36,7 @@
       <strong>${NOTI_VO.cs_noti_title}</strong>
     </div>
     <div class="bbs_info">
-      <div class="nickname">장이지</div>
+      <div class="nickname">${NOTI_VO.cs_noti_writer}</div>
       <div class="comment_date">${NOTI_VO.cs_noti_date} | ${NOTI_VO.cs_noti_time}</div>
       <div class="mem_func">
         <div id="modify">수정</div>

@@ -1,24 +1,8 @@
 package com.biz.dept.auth;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.InternalAuthenticationServiceException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
-import com.biz.dept.model.AuthorityVO;
-import com.biz.dept.model.UserDetailsVO;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -55,7 +39,3 @@ public class AuthProviderImpl implements AuthenticationProvider {@Override
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-
-
-}

@@ -36,7 +36,7 @@
       <strong>${FREE_VO.cs_free_title}</strong>
     </div>
     <div class="bbs_info">
-      <div class="nickname">작성자</div>
+      <div class="nickname">${FREE_VO.cs_free_writer}</div>
       <div class="comment_date">${FREE_VO.cs_free_date} | ${FREE_VO.cs_free_time}</div>
       <div class="mem_func">
         <div id="modify">수정</div>
@@ -47,7 +47,7 @@
   </div>
   <hr />
   <div class="bbs_text_area">
-  	<img src="${rootPath}/files/${FREE_VO.cs_free_image}" width="100%">
+	<img src="${rootPath}/files/${FREE_VO.cs_free_image}" height="50%">
     ${FREE_VO.cs_free_text}
   </div>
   <div class="bbs_button_area">
