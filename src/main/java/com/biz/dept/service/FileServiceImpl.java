@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-@Service
+@Service("fileService")
 public class FileServiceImpl implements FileService {
 
 	@Autowired
