@@ -3,6 +3,7 @@ package com.biz.dept.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,15 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class MemberServiceImplV1 implements MemberService{
 	
+	@Autowired
 	@Qualifier("passwordEncoder")
 	private final PasswordEncoder passwordEncoder;
 	
+	@Autowired
 	// 회원정보 CRUD 구현
 	private final UserDao userDao;
 	
+	@Autowired
 	// 회원의 권한(ROLE) 정보 CRUD 구현
 	private final AuthorityDao authDao;
 	
