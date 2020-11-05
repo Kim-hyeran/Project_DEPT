@@ -29,7 +29,7 @@
 
 				return false;
 			} else {
-				$(location).attr("href", "mainboard_page.html");
+				$(location).attr("href", "${rootPath}/comsc");
 			}
 
 			// $("form").submit();
