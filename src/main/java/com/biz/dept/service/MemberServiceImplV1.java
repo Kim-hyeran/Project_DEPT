@@ -4,15 +4,16 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.biz.dept.mapper.AuthorityDao;
-import com.biz.dept.mapper.UserDao;
 import com.biz.dept.model.AuthorityVO;
 import com.biz.dept.model.UserDetailsVO;
+import com.biz.dept.persistence.AuthorityDao;
+import com.biz.dept.persistence.UserDao;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,12 +23,15 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class MemberServiceImplV1 implements MemberService{
 	
+	@Autowired
 	@Qualifier("passwordEncoder")
 	private final PasswordEncoder passwordEncoder;
 	
+	@Autowired
 	// 회원정보 CRUD 구현
 	private final UserDao userDao;
 	
+	@Autowired
 	// 회원의 권한(ROLE) 정보 CRUD 구현
 	private final AuthorityDao authDao;
 	
