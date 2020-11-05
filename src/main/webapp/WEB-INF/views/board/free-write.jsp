@@ -39,8 +39,11 @@
 		]
 		$("#summer_note").summernote({lang:"ko-KR", width:"100%", height:"300px", toolbar:toolbar})
 	})
+	
+	
 </script>
 <form method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
   <div class="write_title">
 	<input name="cs_free_seq" value="${FREE_VO.cs_free_seq}" type="hidden" />
   	<input name="cs_free_date" value="${FREE_VO.cs_free_date}" type="hidden" />
@@ -55,4 +58,6 @@
     <button id="back_to_list" type="button">취소</button>
     <button id="submit">등록</button>
   </div>
+  
+
 </form>
