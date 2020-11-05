@@ -4,8 +4,7 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
     <script
       type="text/javascript"
-      src="https://code.jquery.com/jquery-3.2.0.min.js"
-    ></script>
+      src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../styles/login.css" />
     <script>
       $(function () {
@@ -55,6 +54,6 @@
         type="button"
         name=""
         value="Create an Account"
-        onClick="location.href='signUp.html';"
+        onClick="location.href='signup.jsp';"
       />
     </form>
