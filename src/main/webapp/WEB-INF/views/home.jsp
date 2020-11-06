@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/home.css?ver=2020-10-20-001" />
 <script src="https://kit.fontawesome.com/c2f525edad.js" crossorigin="anonymous"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="${rootPath}/static/javascript/sidebar.js?ver=2020-10-20-002"></script>
+<script src="${rootPath}/static/javascript/sidebar.js?ver=2020-11-06-002"></script>
 </head>
 
 <input type="checkbox" id="check" />
@@ -70,6 +70,7 @@
 				</c:otherwise>
 			</c:choose>
 		</section>
+		<%@ include file="/WEB-INF/views/footer.jsp" %>
 	</div>
 </body>
 

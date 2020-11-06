@@ -29,6 +29,11 @@
 		text-decoration: none;
 		color: inherit;
 	}
+	
+	div.bbs_comment_area p {
+		color: #666;
+		text-align: center;
+	}
 </style>
 <div class="bbs_area">
   <div class="bbs_title_area">
@@ -58,39 +63,6 @@
   </div>
   <hr />
   <div class="bbs_comment_area">
-    <div class="input_area">
-      <input class="comment_input" placeholder="댓글을 입력하세요" />
-      <button id="submit">등록</button>
-    </div>
-    <ul>
-      <li>
-        <div class="profile_img"></div>
-        <div class="comment_post">
-          <div class="profile_info">
-            <div class="nickname">댓글</div>
-            <div class="comment_date">20-08-01</div>
-            <div class="reply_button">
-              <div id="modify">수정</div>
-              <div id="delete">삭제</div>
-            </div>
-          </div>
-          <div class="comment_text">테스트입니다</div>
-        </div>
-      </li>
-      <li>
-        <div class="profile_img"></div>
-        <div class="comment_post">
-          <div class="profile_info">
-            <div class="nickname">안녕하세요</div>
-            <div class="comment_date">20-10-05</div>
-            <div class="reply_button">
-              <div id="modify">수정</div>
-              <div id="delete">삭제</div>
-            </div>
-          </div>
-          <div class="comment_text">댓글입니다</div>
-        </div>
-      </li>
-    </ul>
+    <p>댓글을 사용할 수 없습니다.</p>
   </div>
 </div>

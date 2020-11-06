@@ -31,6 +31,19 @@ public class BoardSQL {
 		return sql.toString();
 	}
 	
+	// 자유게시판 댓글
+	public String free_reply_insert() {
+		SQL sql=new SQL();
+		
+		sql.INSERT_INTO("tbl_cs_reply");
+		sql.INTO_COLUMNS("cs_rp_seq").INTO_VALUES("cs_rp_seq.NEXTVAL");
+		sql.INTO_COLUMNS("cs_free_seq").INTO_VALUES("cs_free_seq");
+		sql.INTO_COLUMNS("cs_rp_writer").INTO_VALUES("cs_rp_writer");
+		sql.INTO_COLUMNS("cs_rp_text").INTO_VALUES("cs_rp_text");
+		
+		return sql.toString();
+	}
+	
 	// 정보게시판
 	public String info_insert() {
 		SQL sql=new SQL();

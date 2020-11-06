@@ -17,9 +17,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.biz.dept.model.FreeVO;
 import com.biz.dept.model.InfoVO;
+import com.biz.dept.model.ReplyVO;
 import com.biz.dept.service.FileService;
 import com.biz.dept.service.FreeService;
 import com.biz.dept.service.InfoService;
+import com.biz.dept.service.ReplyService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,6 +41,10 @@ public class BoardController {
 	@Autowired
 	@Qualifier("fileService")
 	private FileService fileService;
+	
+	@Autowired
+	@Qualifier("replyService")
+	private ReplyService replyService;
 
 	// 게시판 메인 화면
 	@RequestMapping(value = { "/", "" }, method = RequestMethod.GET)
@@ -70,6 +76,9 @@ public class BoardController {
 		long long_seq = Long.valueOf(seq);
 		FreeVO freeVO = freeService.findBySeq(long_seq);
 
+		List<ReplyVO> replyList=replyService.selectAll(long_seq);
+		
+		model.addAttribute("REPLY_LIST", replyList);
 		model.addAttribute("FREE_VO", freeVO);
 		model.addAttribute("BODY", "FREE_DETAIL");
 

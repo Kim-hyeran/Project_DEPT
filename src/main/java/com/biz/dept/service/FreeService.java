@@ -8,8 +8,8 @@ public interface FreeService {
 	
 	public List<FreeVO> selectAll();
 	public FreeVO findBySeq(long seq);
-	public int insert(FreeVO boardVO);
-	public int update(FreeVO boardVO);
+	public int insert(FreeVO freeVO);
+	public int update(FreeVO freeVO);
 	public int delete(long seq);
-
+	
 }

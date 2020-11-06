@@ -47,7 +47,9 @@
   </div>
   <hr />
   <div class="bbs_text_area">
-  	<img src="${rootPath}/files/${INFO_VO.cs_info_image}" width="100%">
+	<c:if test="${not empty INFO_VO.cs_info_image}">
+	  	<img src="${rootPath}/files/${INFO_VO.cs_info_image}" width="70%">
+  	</c:if>
     ${INFO_VO.cs_info_text}
   </div>
   <div class="bbs_button_area">
