@@ -102,15 +102,15 @@ div.comment_date {
   color: #888;
 }
 
-div.input_area {
+form div.input_area {
   display: flex;
 }
 
-div.input_area #submit {
+form div.input_area #submit {
   margin-left: auto;
 }
 
-.comment_input {
+form .comment_input {
   display: inline-block;
   width: 92%;
   border: none;
@@ -120,6 +120,7 @@ div.input_area #submit {
 
 div.reply_button {
   display: inline-flex;
+  cursor: pointer;
 }
 
 div.reply_button div {

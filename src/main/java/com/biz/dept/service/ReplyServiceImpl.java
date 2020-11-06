@@ -17,14 +17,8 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public List<ReplyVO> selectAll(long seq) {
 		// TODO Auto-generated method stub
-		return replyDao.selectAll();
+		return replyDao.selectAll(seq);
 	}
-
-//	@Override
-//	public ReplyVO findBySeq(long seq) {
-//		// TODO Auto-generated method stub
-//		return replyDao.findBySeq(seq);
-//	}
 
 	@Override
 	public int insert(ReplyVO replyVO) {

@@ -23,10 +23,10 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.UPDATE("tbl_cs_free");
-		sql.SET("cs_free_title=#{cs_free_title}");
-		sql.SET("cs_free_text=#{cs_free_text}");
-		sql.SET("cs_free_image=#{cs_free_image}");
-		sql.WHERE("cs_free_seq=#{cs_free_seq}");
+		sql.SET("cs_free_title = #{cs_free_title}");
+		sql.SET("cs_free_text = #{cs_free_text}");
+		sql.SET("cs_free_image = #{cs_free_image}");
+		sql.WHERE("cs_free_seq = #{cs_free_seq}");
 		
 		return sql.toString();
 	}
@@ -36,10 +36,10 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.INSERT_INTO("tbl_cs_reply");
-		sql.INTO_COLUMNS("cs_rp_seq").INTO_VALUES("cs_rp_seq.NEXTVAL");
-		sql.INTO_COLUMNS("cs_free_seq").INTO_VALUES("cs_free_seq");
-		sql.INTO_COLUMNS("cs_rp_writer").INTO_VALUES("cs_rp_writer");
-		sql.INTO_COLUMNS("cs_rp_text").INTO_VALUES("cs_rp_text");
+		sql.INTO_COLUMNS("cs_rp_seq").INTO_VALUES("#{cs_rp_seq}");
+		sql.INTO_COLUMNS("cs_free_seq").INTO_VALUES("#{cs_free_seq}");
+		sql.INTO_COLUMNS("cs_rp_writer").INTO_VALUES("#{cs_rp_writer}");
+		sql.INTO_COLUMNS("cs_rp_text").INTO_VALUES("#{cs_rp_text}");
 		
 		return sql.toString();
 	}
@@ -64,10 +64,10 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.UPDATE("tbl_cs_info");
-		sql.SET("cs_info_title=#{cs_info_title}");
-		sql.SET("cs_info_text=#{cs_info_text}");
-		sql.SET("cs_info_image=#{cs_info_image}");
-		sql.WHERE("cs_info_seq=#{cs_info_seq}");
+		sql.SET("cs_info_title = #{cs_info_title}");
+		sql.SET("cs_info_text = #{cs_info_text}");
+		sql.SET("cs_info_image = #{cs_info_image}");
+		sql.WHERE("cs_info_seq = #{cs_info_seq}");
 		
 		return sql.toString();
 	}
@@ -90,9 +90,9 @@ public class BoardSQL {
 		SQL sql=new SQL();
 		
 		sql.UPDATE("tbl_cs_noti");
-		sql.SET("cs_noti_title=#{cs_noti_title}");
-		sql.SET("cs_noti_text=#{cs_noti_text}");
-		sql.WHERE("cs_noti_seq=#{cs_noti_seq}");
+		sql.SET("cs_noti_title = #{cs_noti_title}");
+		sql.SET("cs_noti_text = #{cs_noti_text}");
+		sql.WHERE("cs_noti_seq = #{cs_noti_seq}");
 		
 		return sql.toString();
 	}

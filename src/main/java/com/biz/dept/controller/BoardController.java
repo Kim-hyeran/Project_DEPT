@@ -72,9 +72,9 @@ public class BoardController {
 
 	// 자유게시판 상세페이지
 	@RequestMapping(value = "/free/{seq}", method = RequestMethod.GET)
-	public String freeDetail(@PathVariable String seq, Model model) {
+	public String freeDetail(@ModelAttribute("FREE_VO") FreeVO freeVO, @PathVariable String seq, Model model) {
 		long long_seq = Long.valueOf(seq);
-		FreeVO freeVO = freeService.findBySeq(long_seq);
+		freeVO = freeService.findBySeq(long_seq);
 
 		List<ReplyVO> replyList=replyService.selectAll(long_seq);
 		
@@ -83,6 +83,27 @@ public class BoardController {
 		model.addAttribute("BODY", "FREE_DETAIL");
 
 		return "home";
+	}
+	
+	// 자유게시판 댓글 작성
+	@RequestMapping(value="/free/replyWrite", method=RequestMethod.POST)
+	public String freeReplyWrtie(ReplyVO replyVO, Model model) {
+		replyService.insert(replyVO);
+		
+		model.addAttribute("cs_free_seq", replyVO.getCs_free_seq());
+		
+		return "redirect:/comsc/free/{seq}";
+	}
+	
+	// 자유게시판 댓글 삭제
+	@RequestMapping(value="/free/replyDelete", method=RequestMethod.POST)
+	public String freeReplyDelete(ReplyVO replyVO, String reply_seq, Model model) {
+		long long_seq=Long.valueOf(reply_seq);
+		replyService.delete(long_seq);
+		
+		model.addAttribute("cs_free_seq", replyVO.getCs_free_seq());
+		
+		return "redirect:/comsc/free/{seq}";
 	}
 
 	// 자유게시판 글 작성 GET

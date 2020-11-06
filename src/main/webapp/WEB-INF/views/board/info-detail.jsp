@@ -61,39 +61,34 @@
   </div>
   <hr />
   <div class="bbs_comment_area">
-    <div class="input_area">
-      <input class="comment_input" placeholder="댓글을 입력하세요" />
-      <button id="submit">등록</button>
-    </div>
-    <ul>
-      <li>
-        <div class="profile_img"></div>
-        <div class="comment_post">
-          <div class="profile_info">
-            <div class="nickname">댓글</div>
-            <div class="comment_date">20-08-01</div>
-            <div class="reply_button">
-              <div id="modify">수정</div>
-              <div id="delete">삭제</div>
-            </div>
-          </div>
-          <div class="comment_text">테스트입니다</div>
-        </div>
-      </li>
-      <li>
-        <div class="profile_img"></div>
-        <div class="comment_post">
-          <div class="profile_info">
-            <div class="nickname">안녕하세요</div>
-            <div class="comment_date">20-10-05</div>
-            <div class="reply_button">
-              <div id="modify">수정</div>
-              <div id="delete">삭제</div>
-            </div>
-          </div>
-          <div class="comment_text">댓글입니다</div>
-        </div>
-      </li>
-    </ul>
+  	<form method="POST">
+	    <div class="input_area">
+		      <input name="cs_rp_text" class="comment_input" placeholder="댓글을 입력하세요" />
+		      <button id="submit">등록</button>
+	    </div>
+  	</form>
+   <ul>
+	<c:choose>
+		<c:when test="${empty REPLY_LIST}">
+			<p>댓글이 작성되지 않았습니다.</p>
+		</c:when>
+		<c:otherwise>
+			<c:forEach items="${REPLY_LIST}" var="REPLY_VO">
+				<li>
+					<div class="comment_post">
+						<div class="profile_info">
+							<div class="nickname">${REPLY_VO.cs_rp_writer}</div>
+							<div class="comment_date">${REPLY_VO.cs_rp_date}</div>
+							<div class="reply_button">
+								<div id="reply_delete">삭제</div>
+							</div>
+						</div>
+						<div class="comment_text">${REPLY_VO.cs_rp_text}</div>
+					</div>
+				</li>
+			</c:forEach>
+		</c:otherwise>
+	</c:choose>
+   </ul>
   </div>
 </div>
