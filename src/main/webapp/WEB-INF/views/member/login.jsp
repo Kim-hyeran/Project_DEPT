@@ -36,7 +36,7 @@
 		});
 	});
 </script>
-<form class="box" action="${rootPath}/login" method="POST">
+<form class="box" action="${rootPath}/login" method="POST" modelAttribute="LOGIN_VO">
 	<img src="${rootPath}/static/images/dept_logo.png" alt="dept_logo" />
 	<h3>Login</h3>
 	
