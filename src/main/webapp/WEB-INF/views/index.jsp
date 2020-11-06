@@ -26,19 +26,19 @@
           <input type="radio" name="radio" id="r5" />
 
           <div class="slide s1">
-            <img src="../images/main_01.png" alt="" />
+            <img src="${rootPath}/static/images/main_01.png" alt="" />
           </div>
           <div class="slide">
-            <img src="../images/img_02.jpg" alt="" />
+            <img src="${rootPath}/static/images/main_02.jpg" alt="" />
           </div>
           <div class="slide">
-            <img src="../images/img_03.jpg" alt="" />
+            <img src="${rootPath}/static/images/main_03.jpg" alt="" />
           </div>
           <div class="slide">
-            <img src="../images/img_04.jpg" alt="" />
+            <img src="${rootPath}/static/images/main_04.jpg" alt="" />
           </div>
           <div class="slide">
-            <img src="../images/img_05.jpg" alt="" />
+            <img src="${rootPath}/static/images/main_05.jpg" alt="" />
           </div>
           <div class="navigation">
             <label for="r1" class="bar"></label>

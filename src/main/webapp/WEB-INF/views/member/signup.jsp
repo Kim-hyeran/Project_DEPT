@@ -52,6 +52,7 @@
             // $("form").submit();
             $(location).attr("href", "login.html");
             // location.href='login.html';
+            
           }
         });
       });
@@ -88,6 +89,24 @@
             name=""
             id="re_password"
             placeholder="check your password"
+          />
+        </div>
+        <div>
+          <label>이름</label>
+          <input
+            type="text"
+            name=""
+            id="name"
+            placeholder="이름"
+          />
+        </div>
+         <div>
+          <label>닉네임</label>
+          <input
+            type="text"
+            name=""
+            id="nickname"
+            placeholder="nickname"
           />
         </div>
         <div id="msg_re_password">
