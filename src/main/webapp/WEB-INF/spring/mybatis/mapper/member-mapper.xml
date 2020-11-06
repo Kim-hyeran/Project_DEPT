@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.biz.dept.persistence.MemberDao">
+
+	<select id="findById" resultType="MemVO">
+		SELECT * FROM tbl_member WHERE dept_userid = #{id}
+	</select>
+	
+ 	<insert id="insert">
+ 		INSERT INTO tbl_member(
+	 		DEPT_USERID,
+			DEPT_PASSWORD,
+			DEPT_NAME,
+			DEPT_NICKNAME,
+			DEPT_DEPT,
+			DEPT_ROLE
+ 		) VALUES(
+ 			#{dept_userid},
+			#{dept_password},
+			#{dept_name},
+			#{dept_nickname},
+			#{dept_dept},
+			#{dept_role}
+		)
+ 	</insert>
+ 	
+ 	<update id="update">
+
+ 	</update>
+ 	<delete id="delete"></delete>
+ 
+ </mapper> 
