@@ -20,12 +20,9 @@
 	<!-- sqlSessionFactory -->
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="oracleDS" />
+		<property name="configLocation" value="/WEB-INF/spring/mybatis/mybatis-config.xml"/>
+		<property name="mapperLocations" value="/WEB-INF/spring/mybatis/mapper/*-mapper.xml"/>
 		<property name="typeAliasesPackage" value="com.biz.dept.model" />
-		<property name="configuration">
-			<bean class="org.apache.ibatis.session.Configuration">
-				<property name="jdbcTypeForNull" value="VARCHAR" />
-			</bean>
-		</property>
 	</bean>
 
 	<tx:annotation-driven />
