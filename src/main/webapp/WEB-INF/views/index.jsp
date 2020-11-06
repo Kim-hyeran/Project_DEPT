@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/index.css" />
+<link rel="stylesheet" type="text/css" href="${rootPath}/static/css/index.css?ver=2020-11-06" />
     <header>
       <div id="btn_box">
         <button id="loginBtn" onClick="location.href='login'">
