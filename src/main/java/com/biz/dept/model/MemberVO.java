@@ -17,6 +17,5 @@ public class MemberVO {
 	private String dept_name;		//	nvarchar2(30)
 	private String dept_nickname;	//	nvarchar2(30)
 	private String dept_dept;		//	nvarchar2(30)
-	private String dept_tel;		//	varchar(20)
 	private String dept_role;		//	nvarchar2(20)
 }
