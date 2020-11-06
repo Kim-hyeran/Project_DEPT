@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
     <script
       type="text/javascript"
-      src="https://code.jquery.com/jquery-3.2.0.min.js"
-    ></script>
-    <link rel="stylesheet" type="text/css" href="../styles/signup.css" />
+      src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/signup.css" />
     <script>
       $(function () {
         $("#create_account").click(function () {
@@ -57,18 +57,14 @@
         });
       });
     </script>
-    <form class="box" action="signUp.html" method="POST">
-      <img src="../images/dept_logo.png" alt="dept_logo" />
+
+    <form:form modelAttribute="MEM_VO">
+      <img src="${rootPath}/static/images/dept_logo.png" alt="dept_logo" />
       <div id="input_box">
         <h3>signup</h3>
         <div>
           <label>이메일(아이디)</label>
-          <input
-            type="text"
-            name=""
-            id="username"
-            placeholder="userID(email)"
-          />
+          <form:input path="dept_userid" class="dept_code" type="email" id="username" placeholder="userID(email)"/>
         </div>
         <div id="msg_username">
           <label></label>
@@ -76,7 +72,7 @@
         </div>
         <div>
           <label>비밀번호</label>
-          <input type="password" name="" id="password" placeholder="password" />
+          <form:input path="dept_password" type="password" id="password" placeholder="password" />
         </div>
         <div id="msg_password">
           <label></label>
@@ -93,20 +89,11 @@
         </div>
         <div>
           <label>이름</label>
-          <input
-            type="text"
-            name=""
-            id="name"
-            placeholder="이름"
-          />
+          <form:input path="dept_name" type="text" id="name" placeholder="이름"/>
         </div>
          <div>
           <label>닉네임</label>
-          <input
-            type="text"
-            name=""
-            id="nickname"
-            placeholder="nickname"
+          <form:input path="dept_nickname" type="text" id="nickname" placeholder="nickname"
           />
         </div>
         <div id="msg_re_password">
@@ -115,10 +102,9 @@
         </div>
         <div>
           <label>학교/학과</label>
-          <input
+          <form:input path="dept_dept"
             type="text"
-            name=""
-            id="dept_input"
+            id="dept"
             placeholder="학교/학과"
             readonly
           />
@@ -128,4 +114,4 @@
           <button id="create_account">Create an Account</button>
         </div>
       </div>
-    </form>
+    </form:form>
