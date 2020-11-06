@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/detail.css?ver=2020-10-20-001" />
 <script>
@@ -20,6 +19,16 @@
 		trash.addEventListener("click", function () {
 			if(confirm("삭제할까요?")) {
 				document.location.href="${rootPath}/comsc/free/delete/${FREE_VO.cs_free_seq}"
+				return false
+			}
+		})
+	})
+	
+	document.addEventListener("DOMContentLoaded", function () {
+		let trash = document.querySelector("#reply_delete")
+		trash.addEventListener("click", function () {
+			if(confirm("삭제할까요?")) {
+				document.location.href="${rootPath}/comsc/free/replyDelete"
 				return false
 			}
 		})
@@ -67,10 +76,17 @@
   </div>
   <hr />
   <div class="bbs_comment_area">
-    <div class="input_area">
-	      <input class="comment_input" placeholder="댓글을 입력하세요" />
-	      <button id="submit">등록</button>
-    </div>
+  	<form method="POST" action="${rootPath}/comsc/free/replyWrite">
+	    <div class="input_area">
+	    	  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+	    	  <input name="cs_rp_seq" value="${REPLY_VO.cs_rp_seq}" type="hidden" />
+	    	  <input name="cs_free_seq" value="${REPLY_VO.cs_free_seq}" type="hidden" />
+		      <input name="cs_rp_writer" value="${REPLY_VO.cs_rp_writer}" type="hidden" />
+		      <input name="cs_rp_date" value="${REPLY_VO.cs_rp_date}" type="hidden" />
+		      <input name="cs_rp_text" class="comment_input" placeholder="댓글을 입력하세요" />
+		      <button id="submit">등록</button>
+	    </div>
+  	</form>
    <ul>
 	<c:choose>
 		<c:when test="${empty REPLY_LIST}">
@@ -84,8 +100,7 @@
 							<div class="nickname">${REPLY_VO.cs_rp_writer}</div>
 							<div class="comment_date">${REPLY_VO.cs_rp_date}</div>
 							<div class="reply_button">
-								<div id="modify">수정</div>
-								<div id="delete">삭제</div>
+								<div id="reply_delete">삭제</div>
 							</div>
 						</div>
 						<div class="comment_text">${REPLY_VO.cs_rp_text}</div>
