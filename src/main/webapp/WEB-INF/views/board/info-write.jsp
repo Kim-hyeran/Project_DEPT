@@ -39,6 +39,7 @@
 </script>
 <form method="POST" enctype="multipart/form-data">
   <div class="write_title">
+  	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 	<input name="cs_info_seq" value="${INFO_VO.cs_info_seq}" type="hidden" />
 	<input name="cs_info_date" value="${INFO_VO.cs_info_date}" type="hidden" />
   	<input name="cs_info_time" value="${INFO_VO.cs_info_time}" type="hidden" />
@@ -54,7 +55,21 @@
   <div class="write_body">
     <textarea id="summer_note" name="cs_info_text">${INFO_VO.cs_info_text}</textarea>
   </div>
-  <div><label>이미지 첨부</label><input type="file" id="write_file" name="file" accept="image/*" /></div>
+  <div>
+  	<label>이미지 첨부</label><input type="file" id="write_file" name="file" accept="image/*" />
+  	<div class="select_img"><img src="" /></div>
+  	<script>
+	  $("#write_file").change(function(){
+	   if(this.files && this.files[0]) {
+	    var reader = new FileReader;
+	    reader.onload = function(data) {
+	     $(".select_img img").attr("src", data.target.result).width(300);        
+	    }
+	    reader.readAsDataURL(this.files[0]);
+	   }
+	  });
+	</script>
+  </div>
   <div class="write_submit">
     <button id="back_to_list" type="button">취소</button>
     <button id="submit">등록</button>

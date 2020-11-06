@@ -15,9 +15,6 @@
 
 <link rel="stylesheet" type="text/css" href="${rootPath}/static/css/write.css?ver=2020-10-20-002" />
 <script>
-	var csrf_header = "${_csrf.headerName}"
-	var csrf_token = "${_csrf.token}"
-	
 	$(function () {
 		$("button#back_to_list").click(function () {
 			document.location.href = "${rootPath}/comsc/free"
@@ -46,6 +43,7 @@
   <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
   <div class="write_title">
 	<input name="cs_free_seq" value="${FREE_VO.cs_free_seq}" type="hidden" />
+	<input name="cs_free_writer" value="${FREE_VO.cs_free_writer}" type="hidden" />
   	<input name="cs_free_date" value="${FREE_VO.cs_free_date}" type="hidden" />
   	<input name="cs_free_time" value="${FREE_VO.cs_free_time}" type="hidden" />
     <input class="title_input" name="cs_free_title" value="${FREE_VO.cs_free_title}" placeholder="제목을 입력하세요" />
@@ -53,7 +51,21 @@
   <div class="write_body">
     <textarea id="summer_note" name="cs_free_text">${FREE_VO.cs_free_text}</textarea>
   </div>
-  <div><label>이미지 첨부</label><input type="file" id="write_file" name="file" accept="image/*" /></div>
+  <div>
+  	<label>이미지 첨부</label><input type="file" id="write_file" name="file" accept="image/*" />
+  	<div class="select_img"><img src="" /></div>
+  	<script>
+	  $("#write_file").change(function(){
+	   if(this.files && this.files[0]) {
+	    var reader = new FileReader;
+	    reader.onload = function(data) {
+	     $(".select_img img").attr("src", data.target.result).width(300);        
+	    }
+	    reader.readAsDataURL(this.files[0]);
+	   }
+	  });
+	</script>
+  </div>
   <div class="write_submit">
     <button id="back_to_list" type="button">취소</button>
     <button id="submit">등록</button>

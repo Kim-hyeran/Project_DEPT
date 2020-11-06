@@ -39,6 +39,7 @@
 </script>
 <form method="POST">
   <div class="write_title">
+  	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
   	<input name="cs_noti_seq" value="${NOTI_VO.cs_noti_seq}" type="hidden" />
 	<input name="cs_noti_date" value="${NOTI_VO.cs_noti_date}" type="hidden" />
   	<input name="cs_noti_time" value="${NOTI_VO.cs_noti_time}" type="hidden" />
