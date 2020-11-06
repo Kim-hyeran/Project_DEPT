@@ -25,18 +25,17 @@ public class MemberController {
 	@Qualifier("memberServiceV1")
 	private MemberService memService;
 	
-	@RequestMapping(value="/join", method=RequestMethod.GET)
+	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public String join(@ModelAttribute("MEM_VO") MemberVO memVO, Model model) {
 		
 		// 아래 두 명령문을 @ModelAttribute("MEM_VO") MemberVO memVO 매개변수가 대신 처리한다.
 		//MemberVO memVO = new MemberVO();
 		//model.addAttribute("MEM_VO", memVO);
-		
-		model.addAttribute("BODY", "MEM_WRITE");
-		return "index";
+
+		return "/member/signup";
 	}
 	
-	@RequestMapping(value="/join", method=RequestMethod.POST)
+	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String join(@ModelAttribute("MEM_VO") MemberVO memVO, Model model, String s) {
 		
 		log.debug(memVO.toString());
@@ -47,8 +46,7 @@ public class MemberController {
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(@ModelAttribute("LOGIN_VO") MemberVO loginVO, Model model) {
-		model.addAttribute("BODY", "LOGIN");
-		
+
 		return "/member/login";
 	}
 
@@ -81,7 +79,7 @@ public class MemberController {
 		
 		model.addAttribute("BODY", retURL);
 		
-		return "home";
+		return "${rootPath}/comsc";
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
@@ -89,7 +87,7 @@ public class MemberController {
 		httpSession.removeAttribute("LOGIN");
 		httpSession = null;
 		
-		return "home";
+		return "index";
 	}
 	
 //	@RequestMapping(value="/signup", method=RequestMethod.GET)

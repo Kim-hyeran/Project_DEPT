@@ -64,7 +64,7 @@
         <h3>signup</h3>
         <div>
           <label>이메일(아이디)</label>
-          <form:input path="dept_userid" class="dept_code" type="email" id="username" placeholder="userID(email)"/>
+          <form:input path="dept_userid" type="email" id="username" placeholder="userID(email)"/>
         </div>
         <div id="msg_username">
           <label></label>
@@ -93,8 +93,7 @@
         </div>
          <div>
           <label>닉네임</label>
-          <form:input path="dept_nickname" type="text" id="nickname" placeholder="nickname"
-          />
+          <form:input path="dept_nickname" type="text" id="nickname" placeholder="nickname"/>
         </div>
         <div id="msg_re_password">
           <label></label>
@@ -102,12 +101,7 @@
         </div>
         <div>
           <label>학교/학과</label>
-          <form:input path="dept_dept"
-            type="text"
-            id="dept"
-            placeholder="학교/학과"
-            readonly
-          />
+          <form:input path="dept_dept" type="text" id="dept" placeholder="학교/학과" readonly="true" />
           <button id="dept_search">검색</button>
         </div>
         <div>

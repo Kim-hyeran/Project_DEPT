@@ -32,6 +32,12 @@ public class HomeController {
 
 		return "index";
 	}
+	
+//	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+//	public String signup(Locale locale, Model model) {
+//
+//		return "/member/signup";
+//	}
 
 	@RequestMapping(value = "/notice", method = RequestMethod.GET)
 	public String notice(Model model) {
